@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './plugins/axios'
+import '@/mock'
 
 import '@/assets/css/base.styl'
 
