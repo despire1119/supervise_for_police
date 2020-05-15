@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <router-view />
+    <bottom-bar />
   </div>
 </template>
 <script>
+import BottomBar from '@/components/common/BottomBar'
+
 export default {
+  components: {
+    BottomBar
+  },
   mounted() {
     this.test()
   },
@@ -27,5 +32,6 @@ export default {
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
+  background-color #fff
+  padding-bottom 56px
 </style>

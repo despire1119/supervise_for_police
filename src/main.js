@@ -5,7 +5,7 @@ import store from './store'
 import './plugins/axios'
 import '@/mock'
 
-import '@/assets/css/base.styl'
+import '@/assets/css/reset.styl'
 
 Vue.config.productionTip = false
 

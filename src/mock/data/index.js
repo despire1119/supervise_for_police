@@ -1,5 +1,7 @@
-import test from './test.json'
+import test from './test.js'
+import lists from './lists.js'
 
 export default {
-  ...test
+  test,
+  lists
 }
