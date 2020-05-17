@@ -49,7 +49,7 @@ export default {
     font-size 14px
     font-weight 500
     span
-      transition all .3s ease-in-out
+      transition all .15s ease-in-out
       line-height 40px
       &.active
         color #fff
