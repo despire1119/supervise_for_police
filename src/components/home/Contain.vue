@@ -1,13 +1,17 @@
 <template>
-  <ul class="contain">
-    <li v-for="(item, index) in containList" :key="index">
-      <div class="icon"><img :src="item.imgUrl" :alt="item.tit"></div>
-      <p class="tit">{{ item.tit }}</p>
-    </li>
-  </ul>
+  <div class="contain-box">
+    <ul class="contain">
+      <li v-for="(item, index) in containList" :key="index">
+        <div class="icon"><img :src="item.imgUrl" :alt="item.tit"></div>
+        <p class="tit">{{ item.tit }}</p>
+      </li>
+    </ul>
+  </div>
+
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -27,12 +31,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.contain-box
+  position relative
 .contain
   display flex
   justify-content space-around
   flex-wrap wrap
   font-size 13px
   color #4A4A4A
+  text-align center
   li
     padding-top 16px
     width 93.75px

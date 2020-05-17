@@ -6,6 +6,7 @@ import './plugins/axios'
 import '@/mock'
 
 import '@/assets/css/reset.styl'
+import '@/assets/css/base.styl'
 
 Vue.config.productionTip = false
 

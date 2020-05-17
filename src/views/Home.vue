@@ -3,21 +3,24 @@
     <Banner />
     <Toast />
     <Contain />
+    <fix-bar />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Banner from '@/components/common/Banner'
-import Toast from '@/components/common/Toast'
-import Contain from '@/components/common/Contain'
+import Banner from '@/components/home/Banner'
+import Toast from '@/components/home/Toast'
+import Contain from '@/components/home/Contain'
+import FixBar from '@/components/home/FixBar'
 
 export default {
   name: 'Home',
   components: {
     Banner,
     Toast,
-    Contain
+    Contain,
+    FixBar
   }
 }
 </script>
