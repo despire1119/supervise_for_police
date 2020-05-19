@@ -10,6 +10,7 @@
 import NavBar from '@/components/common/NavBar'
 import SelectCenter from '@/components/cases/SelectCenter'
 import CaseList from '@/components/cases/CaseList'
+import common from '@/mixins/common'
 
 export default {
   components: {
@@ -17,6 +18,7 @@ export default {
     SelectCenter,
     CaseList
   },
+  mixins: [common],
   data() {
     return {
     }

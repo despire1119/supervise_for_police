@@ -28,6 +28,14 @@ const routes = [
     meta: {
       title: '舆情报结'
     }
+  },
+  {
+    path: '/base_info',
+    name: 'BaseInfo',
+    component: () => import('../views/BaseInfo'),
+    meta: {
+      title: '舆情基本信息'
+    }
   }
   // {
   //   path: '/about',

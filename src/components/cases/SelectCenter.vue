@@ -78,7 +78,9 @@ export default {
         width 16px
         height 16px
         margin-left 12px
-        background-color #ddd
+        background-image url('~@/assets/images/fangdajing@2x.png')
+        background-repeat no-repeat
+        background-size contain
       input
         flex 1
         height 100%

@@ -13,6 +13,7 @@ import Banner from '@/components/home/Banner'
 import Toast from '@/components/home/Toast'
 import Contain from '@/components/home/Contain'
 import FixBar from '@/components/home/FixBar'
+import common from '@/mixins/common'
 
 export default {
   name: 'Home',
@@ -21,6 +22,7 @@ export default {
     Toast,
     Contain,
     FixBar
-  }
+  },
+  mixins: [common]
 }
 </script>

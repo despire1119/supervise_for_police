@@ -90,8 +90,10 @@ export default {
         background-color transparent
     .icon-doc
       width 11px
-      height 16px
+      height 14px
       display inline-block
-      background-color #ddd
       margin-right 5px
+      background-image url('~@/assets/images/wenjian@2x.png')
+      background-size contain
+      background-repeat no-repeat
 </style>

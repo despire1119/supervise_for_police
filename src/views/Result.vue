@@ -24,11 +24,13 @@
 <script>
 import NavBar from '@/components/common/NavBar'
 import InfoBar from '@/components/result/InfoBar'
+import common from '@/mixins/common'
 export default {
   components: {
     NavBar,
     InfoBar
-  }
+  },
+  mixins: [common]
 }
 </script>
 

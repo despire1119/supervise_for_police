@@ -10,6 +10,7 @@
 
 <script>
 import autoTextarea from '@/components/common/autoTextarea'
+
 export default {
   components: {
     autoTextarea

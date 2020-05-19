@@ -4,15 +4,21 @@
       <router-link to="/">Home</router-link> |
     </div> -->
     <router-view />
-    <bottom-bar />
+    <bottom-bar v-if="getIfBottom" />
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import BottomBar from '@/components/common/BottomBar'
 
 export default {
   components: {
     BottomBar
+  },
+  computed: {
+    ...mapGetters([
+      'getIfBottom'
+    ])
   },
   mounted() {
     this.test()
