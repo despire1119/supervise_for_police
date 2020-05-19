@@ -29,9 +29,6 @@ export default {
       'getBottomBar'
     ])
   },
-  created() {
-    console.log(this.bottomBarList)
-  },
   methods: {
     chooseItem(i) {
       this.$store.commit('setBottomBarList', i)
@@ -51,8 +48,13 @@ export default {
   display flex
   height 56px
   font-weight 500
+  background-color #fff
   box-shadow:0px -2px 5px 0px rgba(0,0,0,0.07)
   .item
+    flex 1
+    transition all .3s ease-in-out
+    text-align center
+    margin 0 25px
     .img-container
       display flex
       justify-content center

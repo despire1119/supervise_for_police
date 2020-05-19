@@ -37,6 +37,11 @@ export default {
 
 <style lang="stylus" scoped>
 .select-center
+  position fixed
+  top 44px
+  left 0
+  right 0
+  z-index 9999
   .nav
     display flex
     justify-content space-around
@@ -92,10 +97,11 @@ export default {
     align-items center
     font-size 15px
     color #333333
+    padding-bottom 5px
+    background-color #F8F8F7
     .card
-      padding 6px 0
+      padding 12px 0 6px
       border-bottom 2px solid transparent
-      padding-top 12px
     .active
       color #1677FE
       border-color #1677FE

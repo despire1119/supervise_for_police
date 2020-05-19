@@ -25,4 +25,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.cases
+  padding-top 172px
 </style>

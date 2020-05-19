@@ -23,20 +23,22 @@ export default {
 <style lang="stylus" scoped>
 .case-list
   font-size 13px
+  padding-bottom 24px
   .case
     position relative
     margin 10px 10px 0
     background-color #fff
     box-shadow 0px 0px 4px 0px rgba(0,0,0,0.15)
-    padding 10px 8px
+    padding 10px 8px 15px
     border-radius 2px
     p
       display flex
       align-items center
-      margin-bottom 15px
+      &:not(:last-child)
+        margin-bottom 15px
     .inner-state
       display inline-block
-      padding 5px 6px
+      padding 2px 4px
       border 1px solid #D0021B
       border-radius 2px
       color #D0021B
@@ -50,7 +52,7 @@ export default {
     .tip
       color #666666
       display inline-block
-      width 52px
+      min-width 52px
       text-align right
       margin-right 10px
     .state
@@ -71,7 +73,7 @@ export default {
       justify-content center
       align-items center
       right 10px
-      bottom 7px
+      bottom 8px
       color #1677FE
       width 88px
       height 30px

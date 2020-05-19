@@ -20,6 +20,14 @@ const routes = [
     meta: {
       title: '舆情列表'
     }
+  },
+  {
+    path: '/result',
+    name: 'Result',
+    component: () => import('../views/Result'),
+    meta: {
+      title: '舆情报结'
+    }
   }
   // {
   //   path: '/about',
