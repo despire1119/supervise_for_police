@@ -1,23 +1,29 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'with-top': getIfTop,'need-white': !getIfBottom}">
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
     </div> -->
+    <nav-bar v-if="getIfTop" :tit="getCurrentTitle"></nav-bar>
     <router-view />
     <bottom-bar v-if="getIfBottom" />
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import NavBar from '@/components/common/NavBar'
 import BottomBar from '@/components/common/BottomBar'
 
 export default {
   components: {
+    NavBar,
     BottomBar
   },
   computed: {
     ...mapGetters([
-      'getIfBottom'
+      'getIfTop',
+      'getIfBottom',
+      'getIfWhite',
+      'getCurrentTitle'
     ])
   },
   mounted() {
@@ -44,4 +50,12 @@ button, input, textarea
   outline none
 .with-top
   padding-top 44px
+.need-white
+  position absolute
+  top 0
+  bottom 0
+  right 0
+  left 0
+  overflow-y auto
+  background-color #fff
 </style>

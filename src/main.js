@@ -7,6 +7,7 @@ import '@/mock'
 
 import '@/assets/css/reset.styl'
 import '@/assets/css/base.styl'
+import './plugins/vant.js'
 
 Vue.config.productionTip = false
 

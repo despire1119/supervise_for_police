@@ -1,11 +1,12 @@
 <template>
-  <div class="with-top">
-    <nav-bar />
-    <p class="tit">宿迁收费高速公路出入口</p>
-    <p class="info">
-      <span><i>报结期限：</i><i class="date">2020/05/30</i></span>
-      <span><i>状态：</i><i>已签收</i></span>
-    </p>
+  <div>
+    <div class="header">
+      <p class="tit">宿迁收费高速公路出入口</p>
+      <p class="info">
+        <span><i>报结期限：</i><i class="date">2020/05/30</i></span>
+        <span><i>状态：</i><i>已签收</i></span>
+      </p>
+    </div>
     <div class="info-area">
       <info-bar tit="填写数据" />
       <info-bar tit="领导批示" />
@@ -22,12 +23,11 @@
 </template>
 
 <script>
-import NavBar from '@/components/common/NavBar'
 import InfoBar from '@/components/result/InfoBar'
 import common from '@/mixins/common'
+
 export default {
   components: {
-    NavBar,
     InfoBar
   },
   mixins: [common]
@@ -35,11 +35,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.header
+  background-color #F8F8F7
+  padding-bottom 10px
 .tit
   color #000
   font-size 18px
   text-align center
-  margin-top 12px
+  padding-top 12px
   margin-bottom 8px
 .info
   display flex
@@ -50,7 +53,6 @@ export default {
   .date
     color #333
 .info-area
-  margin-top 10px
   background-color #fff
   padding-bottom 20px
 .handler

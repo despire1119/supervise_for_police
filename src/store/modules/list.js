@@ -1,3 +1,5 @@
+import { baseInfoList } from '@/config/baseInfoData'
+
 export default {
   state: {
     casesState: [
@@ -33,7 +35,8 @@ export default {
         id: 'all',
         active: false
       }
-    ]
+    ],
+    baseInfo: baseInfoList
   },
   mutations: {
     chooseCase(state, id) {
@@ -47,6 +50,9 @@ export default {
         item.active = item.id === id
         return item
       })
+    },
+    setBaseInfo(state, payload) {
+      state.baseInfo = JSON.parse(JSON.stringify(payload))
     }
   }
 }

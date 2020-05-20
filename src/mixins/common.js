@@ -8,7 +8,8 @@ export default {
     )]
   },
   mounted() {
+    this.$store.commit('setIfTop', this.$route)
     this.$store.commit('setIfBottom', this.$route)
-    console.log(this.$store.getters.getIfBottom)
+    this.$store.commit('setCurrentTitle', this.$route)
   }
 }

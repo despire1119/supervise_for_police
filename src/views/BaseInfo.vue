@@ -1,22 +1,34 @@
 <template>
   <div class="base-info">
-    <nav-bar />
-    <div>
-      基本信息
-    </div>
+    <info-input
+      v-for="(item, index) in baseInfoList"
+      :key="index"
+      :one-line="item.oneLine"
+      :title="item.tit"
+      :placeholder="item.placeholder"
+    />
+    <vant-picker></vant-picker>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/common/NavBar'
+import { mapGetters } from 'vuex'
 import common from '@/mixins/common'
+import baseInfo from '@/mixins/baseInfo'
+import InfoInput from '@/components/common/InfoInput'
 
 export default {
   components: {
-    NavBar
+    InfoInput
   },
-  mixins: [common],
+  mixins: [common, baseInfo],
   computed: {
+    ...mapGetters([
+      'getBaseInfoToCommit'
+    ])
+  },
+  created() {
+    console.log('getBase', this.getBaseInfoToCommit)
   }
 }
 </script>
