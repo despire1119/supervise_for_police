@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import autoTextarea from '@/components/common/autoTextarea'
+import AutoTextarea from '@/components/common/AutoTextarea'
 
 export default {
   components: {
-    autoTextarea
+    AutoTextarea
   },
   props: {
     tit: {
