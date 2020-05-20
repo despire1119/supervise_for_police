@@ -6,18 +6,6 @@
       </div>
       <p class="tit">{{ item.tit }}</p>
     </div>
-    <!-- <div class="item">
-      <div class="img-container">
-        <img src="@/assets/images/bottomBar/super.png" alt="">
-      </div>
-      <p class="tit">监督一张网</p>
-    </div>
-    <div class="item">
-      <div class="img-container">
-        <img src="@/assets/images/bottomBar/mine.png" alt="">
-      </div>
-      <p class="tit">我的</p>
-    </div> -->
   </section>
 </template>
 
