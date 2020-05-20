@@ -1,8 +1,9 @@
 <template>
   <div class="info-input" :class="{'if-oneline': type !== 'textarea'}">
     <span class="tit">{{ title }}</span>
-    <textarea v-if="type === 'textarea'" class="contain-area" :placeholder="placeholder" />
-    <input v-if="type!=='textarea'" :type="type || 'text'" class="contain" :placeholder="placeholder">
+    <textarea v-if="config.type === 'textarea'" class="contain-area" :placeholder="placeholder" />
+    <input v-else-if="config.type === 'text'" :type="config.type" class="contain" :placeholder="placeholder">
+    <div v-else class="contain" :class="{light: !value}">{{ placeholder }}</div>
     <!-- <i v-if="config.icon" :style='`background-image: ${config.icon}`' class="icon" /> -->
     <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
   </div>
@@ -44,11 +45,14 @@ export default {
     placeholder: {
       type: String,
       default: ''
+    },
+    value: {
+      type: String,
+      default: ''
     }
   },
   data() {
     return {
-      iconMap: iconMap,
       config: typeMap[this.type],
       columns: [1, 2, 3, 4]
     }
@@ -72,6 +76,8 @@ export default {
   .contain
     flex 1
     font-size 15px
+  .light
+    color #9B9B9B
   .contain-area
     flex 1
     font-size 15px
