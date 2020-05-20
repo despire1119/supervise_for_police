@@ -7,7 +7,6 @@
       :title="item.tit"
       :placeholder="item.placeholder"
     />
-    <van-picker :columns="column" />
   </div>
 </template>
 

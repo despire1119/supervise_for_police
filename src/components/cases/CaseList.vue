@@ -86,7 +86,6 @@ export default {
         color #1677FE
         padding: 0;
         border: 1px solid transparent;
-        outline: none;
         background-color transparent
     .icon-doc
       width 11px

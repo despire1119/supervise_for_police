@@ -49,5 +49,4 @@ export default {
     background-color #f9f9f9
     border 1px solid #e5e5e5
     border-radius 4px
-    outline none
 </style>

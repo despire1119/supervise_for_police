@@ -46,8 +46,6 @@ export default {
   padding-bottom 56px
   color #333333
   font-weight 500
-button, input, textarea
-  outline none
 .with-top
   padding-top 44px
 .need-white

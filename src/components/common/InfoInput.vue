@@ -1,37 +1,37 @@
 <template>
-  <div class="info-input" :class="{'if-oneline': type !== 'textarea'}">
-    <span class="tit">{{ title }}</span>
-    <textarea v-if="config.type === 'textarea'" class="contain-area" :placeholder="placeholder" />
-    <input v-else-if="config.type === 'text'" :type="config.type" class="contain" :placeholder="placeholder">
-    <div v-else class="contain" :class="{light: !value}">{{ placeholder }}</div>
-    <!-- <i v-if="config.icon" :style='`background-image: ${config.icon}`' class="icon" /> -->
-    <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
+  <div class="multi-input">
+    <div class="info-input" :class="{'if-oneline': type !== 'textarea'}">
+      <span class="tit">{{ title }}</span>
+      <textarea v-if="config.type === 'textarea'" v-model="value" class="contain-area" :placeholder="placeholder" />
+      <input v-else-if="config.type === 'text'" v-model="value" :type="config.type" class="contain" :placeholder="placeholder">
+      <div v-else class="contain" :class="{light: !value}" @click="handleClick">{{ (type === 'date' ? valueToShow : value) || placeholder }}</div>
+      <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
+    </div>
+    <van-popup v-model="showPicker" position="bottom">
+      <van-picker
+        v-if="type === 'select'"
+        :columns="columns"
+        :title="placeholder"
+        show-toolbar
+        @cancel="showPicker = false"
+        @confirm="onConfirm"
+        @change="onChange"
+      />
+      <van-datetime-picker
+        v-if="type === 'date'"
+        v-model="value"
+        :title="placeholder"
+        @cancel="showPicker = false"
+        @confirm="onConfirm"
+        @change="onChange"
+      />
+    </van-popup>
   </div>
 </template>
 
 <script>
-const iconMap = {
-  angleDown: require('@/assets/images/angledown@2x.png'),
-  date: require('@/assets/images/riqiiconx@2x.png')
-}
-const typeMap = {
-  oneLine: {
-    type: 'text',
-    icon: ''
-  },
-  select: {
-    type: 'selector',
-    icon: iconMap.angleDown
-  },
-  date: {
-    type: 'date',
-    icon: iconMap.date
-  },
-  textarea: {
-    type: 'textarea',
-    icon: ''
-  }
-}
+import multiInput from '@/config/multiInput'
+
 export default {
   props: {
     type: {
@@ -46,15 +46,53 @@ export default {
       type: String,
       default: ''
     },
-    value: {
+    initValue: {
       type: String,
       default: ''
     }
   },
   data() {
     return {
-      config: typeMap[this.type],
-      columns: [1, 2, 3, 4]
+      config: multiInput[this.type],
+      columns: [1, 2, 3, 4],
+      showPicker: false,
+      value: ''
+    }
+  },
+  computed: {
+    valueToShow() {
+      return this.value
+    }
+  },
+  methods: {
+    onConfirm(value) {
+      // console.log(item)
+      this.showPicker = false
+    },
+    handleClick() {
+      switch (this.type) {
+        case 'select':
+          this.value = this.initValue
+          break
+        case 'date':
+          this.value = new Date()
+          break
+        default:
+          break
+      }
+      this.type && (this.showPicker = true)
+    },
+    onChange(picker, value, index) {
+      switch (this.type) {
+        case 'select':
+          this.value = value
+          break
+        case 'date':
+          console.log(this.value)
+          break
+        default:
+          break
+      }
     }
   }
 }

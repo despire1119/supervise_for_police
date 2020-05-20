@@ -88,7 +88,6 @@ export default {
         margin-left 8px
         line-height 32px
         font-size 14px
-        outline none
         background-color transparent
         color #333
       ::-webkit-input-placeholder
