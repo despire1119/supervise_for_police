@@ -1,4 +1,7 @@
 import Vue from 'vue'
-import { Button } from 'vant'
+import '@vant/touch-emulator'
+import { Button, Picker, DatetimePicker } from 'vant'
 
 Vue.use(Button)
+Vue.use(Picker)
+Vue.use(DatetimePicker)

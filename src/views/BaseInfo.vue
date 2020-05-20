@@ -3,11 +3,11 @@
     <info-input
       v-for="(item, index) in baseInfoList"
       :key="index"
-      :one-line="item.oneLine"
+      :type="item.type"
       :title="item.tit"
       :placeholder="item.placeholder"
     />
-    <vant-picker></vant-picker>
+    <van-picker :columns="column" />
   </div>
 </template>
 
@@ -22,6 +22,16 @@ export default {
     InfoInput
   },
   mixins: [common, baseInfo],
+  props: {
+    column: {
+      type: Array,
+      default: () => ['value', 'test', '123']
+    }
+  },
+  data() {
+    return {
+    }
+  },
   computed: {
     ...mapGetters([
       'getBaseInfoToCommit'

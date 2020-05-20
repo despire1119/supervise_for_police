@@ -1,27 +1,41 @@
 <template>
-  <div class="info-input" :class="{'if-oneline': oneLine}">
+  <div class="info-input" :class="{'if-oneline': type !== 'textarea'}">
     <span class="tit">{{ title }}</span>
-    <input v-if="oneLine" class="contain" type="text" :placeholder="placeholder">
-    <textarea v-else class="contain-area" :placeholder="placeholder" />
-    <i class="icon" />
+    <textarea v-if="type === 'textarea'" class="contain-area" :placeholder="placeholder" />
+    <input v-if="type!=='textarea'" :type="type || 'text'" class="contain" :placeholder="placeholder">
+    <!-- <i v-if="config.icon" :style='`background-image: ${config.icon}`' class="icon" /> -->
+    <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
   </div>
 </template>
 
 <script>
+const iconMap = {
+  angleDown: require('@/assets/images/angledown@2x.png'),
+  date: require('@/assets/images/riqiiconx@2x.png')
+}
 const typeMap = {
   oneLine: {
     type: 'text',
-    icon: false
+    icon: ''
   },
   select: {
-    type: 'sel'
+    type: 'selector',
+    icon: iconMap.angleDown
+  },
+  date: {
+    type: 'date',
+    icon: iconMap.date
+  },
+  textarea: {
+    type: 'textarea',
+    icon: ''
   }
 }
 export default {
   props: {
-    oneLine: {
-      type: Boolean,
-      default: true
+    type: {
+      type: String,
+      default: 'oneLine'
     },
     title: {
       type: String,
@@ -34,6 +48,8 @@ export default {
   },
   data() {
     return {
+      iconMap: iconMap,
+      config: typeMap[this.type],
       columns: [1, 2, 3, 4]
     }
   }
@@ -70,6 +86,8 @@ export default {
   width 14px
   height 100%
   margin-right 10px
-  background-color #ddd
+  background-size contain
   background-position center
+  background-repeat no-repeat
+  // background-image url('~@/assets/images/angledown@2x.png')
 </style>

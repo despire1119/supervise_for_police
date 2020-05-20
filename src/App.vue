@@ -3,7 +3,7 @@
     <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
     </div> -->
-    <nav-bar v-if="getIfTop" :tit="getCurrentTitle"></nav-bar>
+    <nav-bar v-if="getIfTop" :tit="getCurrentTitle" />
     <router-view />
     <bottom-bar v-if="getIfBottom" />
   </div>
