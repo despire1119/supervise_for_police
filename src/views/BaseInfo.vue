@@ -5,8 +5,19 @@
       :key="index"
       :type="item.type"
       :title="item.tit"
+      :obj-key="item.key"
       :placeholder="item.placeholder"
     />
+    <div class="btn-area">
+      <van-button
+        :loading="false"
+        loading-text="正在生成舆情"
+        text="下一步"
+        type="info"
+        size="large"
+      />
+    </div>
+
   </div>
 </template>
 
@@ -45,4 +56,7 @@ export default {
 <style lang="stylus" scoped>
 .base-info
   font-size 15px
+.btn-area
+  padding 34px
+  padding-bottom 0
 </style>

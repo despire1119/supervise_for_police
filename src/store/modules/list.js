@@ -52,7 +52,11 @@ export default {
       })
     },
     setBaseInfo(state, payload) {
-      state.baseInfo = JSON.parse(JSON.stringify(payload))
+      const [ret] = Object.entries(payload)
+      return state.baseInfo.map(item => {
+        item.key === ret[0] && (item.value = ret[1])
+        return item
+      })
     }
   }
 }

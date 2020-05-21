@@ -56,6 +56,15 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       css: {},
+      less: {
+        lessOptions: {
+          modifyVars: {
+            // 'blue': '#1677FE',
+            // 'button-large-height': '40px',
+            hack: `@import ${resolve('src/assets/css/vant.less')};`
+          }
+        }
+      },
       postcss: {
         plugins: [
           require('postcss-px2vw')({

@@ -15,7 +15,6 @@
         show-toolbar
         @cancel="showPicker = false"
         @confirm="onConfirm"
-        @change="onChange"
       />
       <van-datetime-picker
         v-if="type === 'date'"
@@ -23,17 +22,21 @@
         :title="placeholder"
         @cancel="showPicker = false"
         @confirm="onConfirm"
-        @change="onChange"
       />
     </van-popup>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import multiInput from '@/config/multiInput'
 
 export default {
   props: {
+    objKey: {
+      type: String,
+      default: ''
+    },
     type: {
       type: String,
       default: 'oneLine'
@@ -56,43 +59,45 @@ export default {
       config: multiInput[this.type],
       columns: [1, 2, 3, 4],
       showPicker: false,
-      value: ''
+      value: this.type === 'date' ? new Date() : ''
     }
   },
   computed: {
+    ...mapGetters([
+      'getBaseInfoToCommit'
+    ]),
     valueToShow() {
-      return this.value
+      return this.value instanceof Date ? this.dateFormate('YYYY-mm-dd HH:MM', this.value) : this.value
+    }
+  },
+  watch: {
+    value(newValue, oldValue) {
+      this.$store.commit('setBaseInfo', { [this.objKey]: newValue })
+      console.log(this.getBaseInfoToCommit)
     }
   },
   methods: {
     onConfirm(value) {
       // console.log(item)
+      this.value = value
       this.showPicker = false
     },
     handleClick() {
-      switch (this.type) {
-        case 'select':
-          this.value = this.initValue
-          break
-        case 'date':
-          this.value = new Date()
-          break
-        default:
-          break
-      }
+      // switch (this.type) {
+      //   case 'select':
+      //     this.value = this.initValue || this.columns[0]
+      //     break
+      //   case 'date':
+      //     this.value = new Date()
+      //     break
+      //   default:
+      //     break
+      // }
+      // this.type === 'date' && !this.value && (this.value = new Date())
       this.type && (this.showPicker = true)
     },
     onChange(picker, value, index) {
-      switch (this.type) {
-        case 'select':
-          this.value = value
-          break
-        case 'date':
-          console.log(this.value)
-          break
-        default:
-          break
-      }
+      this.value = value
     }
   }
 }
