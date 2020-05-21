@@ -4,7 +4,7 @@
       <span class="tit">{{ title }}</span>
       <textarea v-if="config.type === 'textarea'" v-model="value" class="contain-area" :placeholder="placeholder" />
       <input v-else-if="config.type === 'text'" v-model="value" :type="config.type" class="contain" :placeholder="placeholder">
-      <div v-else class="contain" :class="{light: !value}" @click="handleClick">{{ (type === 'date' ? valueToShow : value) || placeholder }}</div>
+      <div v-else class="contain" :class="{light: !value}" @click="handleClick">{{ valueToShow || placeholder }}</div>
       <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
     </div>
     <van-popup v-model="showPicker" position="bottom">
