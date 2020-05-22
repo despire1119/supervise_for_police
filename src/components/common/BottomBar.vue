@@ -38,6 +38,7 @@ export default {
   font-weight 500
   background-color #fff
   box-shadow:0px -2px 5px 0px rgba(0,0,0,0.07)
+  z-index 999999
   .item
     flex 1
     transition all .3s ease-in-out

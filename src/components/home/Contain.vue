@@ -1,7 +1,7 @@
 <template>
   <div class="contain-box">
     <ul class="contain">
-      <li v-for="(item, index) in containList" :key="index">
+      <li v-for="(item, index) in containList" :key="index" @click="handleClick(item)">
         <div class="icon"><img :src="item.imgUrl" :alt="item.tit"></div>
         <p class="tit">{{ item.tit }}</p>
       </li>
@@ -25,6 +25,10 @@ export default {
     async getContainList() {
       const res = await this.axios.get('/contain_list')
       this.containList = res.data
+    },
+    handleClick(item) {
+      console.log(item)
+      item.routeName && this.$router.push({ name: 'Cases' })
     }
   }
 }

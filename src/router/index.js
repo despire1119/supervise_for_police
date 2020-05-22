@@ -36,6 +36,14 @@ const routes = [
     meta: {
       title: '舆情基本信息'
     }
+  },
+  {
+    path: '/dispense',
+    name: 'Dispense',
+    component: () => import('../views/Dispense'),
+    meta: {
+      title: '批示交办'
+    }
   }
   // {
   //   path: '/about',

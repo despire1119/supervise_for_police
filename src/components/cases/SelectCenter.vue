@@ -1,17 +1,42 @@
 <template>
   <div class="select-center">
-    <nav class="nav">
+    <!-- <nav class="nav">
       <span v-for="item in getCasesState" :key="item.id" :class="{active: item.active}" @click="choose(item.id)">{{ item.name }}</span>
-    </nav>
-    <div class="search">
-      <p class="search-bar">
-        <i class="icon" />
-        <input type="text" placeholder="请输入案件名称">
-      </p>
+    </nav> -->
+    <van-tabs
+      v-model="active"
+      background="#1677fe"
+      color="#fff"
+      line-height="0"
+      title-active-color="#fff"
+      title-inactive-color="#dae8ff"
+      offset-top="44"
+      animated
+      sticky
+    >
+      <van-tab v-for="item in getCasesState" :key="item.id" :title="item.name" class="with-pad">
+        <slot name="caseList" />
+      </van-tab>
+    </van-tabs>
+    <div class="nav-child">
+      <div class="search">
+        <p class="search-bar">
+          <i class="icon" />
+          <input type="text" placeholder="请输入案件名称">
+        </p>
+      </div>
+      <!-- <nav class="if-mine">
+        <div v-for="(item, index) in getMyCases" :key="index" class="card" :class="{active: item.active}" @click="chooseMine(item.id)">{{ item.name }}</div>
+      </nav> -->
+      <van-tabs
+        v-model="innerActive"
+        color="#1677fe"
+        background="#f8f8f7"
+        title-active-color="#1677fe"
+      >
+        <van-tab v-for="(item, index) in getMyCases" :key="index" :title="item.name" />
+      </van-tabs>
     </div>
-    <nav class="if-mine">
-      <div v-for="(item, index) in getMyCases" :key="index" class="card" :class="{active: item.active}" @click="chooseMine(item.id)">{{ item.name }}</div>
-    </nav>
   </div>
 </template>
 
@@ -36,9 +61,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.select-center
+.with-pad
+  padding-top 94px
+.nav-child
   position fixed
-  top 44px
+  top 88px
+  left 0
+  right 0
+.select-center
+  position absolute
+  top 0
   left 0
   right 0
   z-index 9999

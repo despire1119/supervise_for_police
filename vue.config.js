@@ -59,9 +59,10 @@ module.exports = {
       less: {
         lessOptions: {
           modifyVars: {
-            // 'blue': '#1677FE',
-            // 'button-large-height': '40px',
-            hack: `@import ${resolve('src/assets/css/vant.less')};`
+            'blue': '#1677FE',
+            'button-large-height': '40px',
+            'tabs-card-height': 'margint: 0'
+            // hack: `@import ${resolve('src/assets/css/vant.less')};`
           }
         }
       },

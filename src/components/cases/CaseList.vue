@@ -1,17 +1,139 @@
 <template>
-  <ul class="case-list">
-    <li class="case">
-      <div class="contain">
-        <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-        <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-        <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-        <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-        <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+  <section class="case-list">
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
       </div>
-      <span class="state">督办</span>
-      <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
-    </li>
-  </ul>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs"><i class="icon-doc" /><button>舆情文书</button></div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <p>呈请</p>
+          <p>报结</p>
+        </div>
+      </template>
+    </van-swipe-cell>
+  </section>
 </template>
 
 <script>
@@ -21,9 +143,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.handler
+  margin-right 10px
 .case-list
   font-size 13px
-  padding-bottom 24px
+  margin-bottom 76px
   .case
     position relative
     margin 10px 10px 0

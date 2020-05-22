@@ -1,7 +1,10 @@
 <template>
   <div class="cases">
-    <select-center />
-    <case-list />
+    <select-center>
+      <template #caseList>
+        <case-list />
+      </template>
+    </select-center>
   </div>
 </template>
 
@@ -25,5 +28,7 @@ export default {
 
 <style lang="stylus" scoped>
 .cases
+  position relative
   padding-top 128px
+  padding-bottom 76px
 </style>

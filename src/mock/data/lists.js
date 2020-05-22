@@ -7,7 +7,8 @@ export default {
       },
       {
         imgUrl: 'https://aws.dejipay.com/images/contain/petition.png',
-        tit: '信访'
+        tit: '信访',
+        routeName: 'Cases'
       },
       {
         imgUrl: 'https://aws.dejipay.com/images/contain/net.png',
