@@ -104,6 +104,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.multi-input
+  font-size 15px
 .info-input
   display flex
   align-items flex-start

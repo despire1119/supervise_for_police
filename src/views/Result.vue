@@ -14,10 +14,11 @@
       <info-bar tit="处理结果" init-value="同意批示" />
     </div>
     <p class="handler">
-      <button>报结呈请</button>
+      <van-button class="info-inner" type="info">报结呈请</van-button>
     </p>
     <p class="handler">
-      <button style="background-color: #F2260C">申诉</button>
+      <!-- <button style="background-color: #F2260C">申诉</button> -->
+      <van-button type="danger">申诉</van-button>
     </p>
   </div>
 </template>
@@ -60,6 +61,8 @@ export default {
   justify-content space-around
   margin auto
   margin-top 25px
+  .info-inner
+    background-color #1677fe
   button
     font-size 16px
     color #fff
@@ -67,7 +70,6 @@ export default {
     line-height 40px
     width 290px
     height 40px
-    background-color #1677FE
     border 0
     border-radius 4px
 </style>

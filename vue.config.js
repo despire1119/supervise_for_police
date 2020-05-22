@@ -61,7 +61,8 @@ module.exports = {
           modifyVars: {
             'blue': '#1677FE',
             'button-large-height': '40px',
-            'tabs-card-height': 'margint: 0'
+            'tabs-card-height': 'margint: 0',
+            'van-button--info': '#1677fe'
             // hack: `@import ${resolve('src/assets/css/vant.less')};`
           }
         }

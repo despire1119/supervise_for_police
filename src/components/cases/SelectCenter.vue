@@ -43,6 +43,12 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  data() {
+    return {
+      active: 0,
+      innerActive: 0
+    }
+  },
   computed: {
     ...mapGetters([
       'getCasesState',
