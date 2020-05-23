@@ -4,23 +4,28 @@ export default {
   state: {
     casesState: [
       {
-        name: '待处理',
+        name: '全部',
         id: 0,
         active: true
       },
       {
-        name: '已处理',
+        name: '待处理',
         id: 1,
-        active: false
+        active: true
       },
       {
-        name: '超期未处理',
+        name: '已处理',
         id: 2,
         active: false
       },
       {
-        name: '超期已处理',
+        name: '超期未处理',
         id: 3,
+        active: false
+      },
+      {
+        name: '超期已处理',
+        id: 4,
         active: false
       }
     ],
