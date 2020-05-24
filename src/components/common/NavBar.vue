@@ -1,8 +1,21 @@
 <template>
-  <nav class="nav">
-    <i class="go-back" />
+  <!-- <nav class="nav">
+    <i class="go-back" @click="goHistory" />
     <span>{{ tit }}</span>
-  </nav>
+  </nav> -->
+  <van-nav-bar
+    class="nav"
+    left-arrow
+    fixed
+    @click-left="goHistory"
+  >
+    <template #left>
+      <van-icon name="arrow-left" size="24" color="#ffffff" />
+    </template>
+    <template #title>
+      <span class="nav">{{ tit }}</span>
+    </template>
+  </van-nav-bar>
 </template>
 
 <script>
@@ -13,23 +26,28 @@ export default {
       type: String,
       default: document.title
     }
+  },
+  methods: {
+    goHistory() {
+      window.history.go(-1)
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 .nav
-  position fixed
-  top 0
-  left 0
-  right 0
+  // position fixed
+  // top 0
+  // left 0
+  // right 0
   color #fff
-  height 44px
-  line-height 44px
-  text-align center
+  // height 44px
+  // line-height 44px
+  // text-align center
   font-size 18px
   background-color #1677FE
-  z-index 999999
+  // z-index 999999
   .go-back
     position absolute
     display block

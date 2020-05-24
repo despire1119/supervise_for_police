@@ -4,7 +4,7 @@ export default {
   state: {
     casesState: [
       {
-        name: '全部',
+        name: '全部舆情',
         id: 0,
         active: true
       },
@@ -19,24 +19,24 @@ export default {
         active: false
       },
       {
-        name: '超期未处理',
+        name: '超期未結',
         id: 3,
         active: false
       },
       {
-        name: '超期已处理',
+        name: '超期已結',
         id: 4,
         active: false
       }
     ],
     myCases: [
       {
-        name: '我的案件',
+        name: '我的輿情',
         id: 'mine',
         active: true
       },
       {
-        name: '所有案件',
+        name: '所有輿情',
         id: 'all',
         active: false
       }

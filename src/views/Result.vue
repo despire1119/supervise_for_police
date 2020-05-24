@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="info-area">
-      <info-bar tit="填写数据" />
+      <info-bar tit="拟办意见" />
       <info-bar tit="领导批示" />
       <info-bar tit="单位签收" init-value="签字" />
       <info-bar tit="处理结果" init-value="同意批示" />

@@ -1,23 +1,24 @@
 <template>
   <div class="dispense">
-    <div class="state-bar">
-      <div class="state-line">
-        <div class="dot-area active">
-          <span class="dot">
-            <i class="inner" />
-          </span>
-          <p class="des">批示</p>
-        </div>
-        <div class="dot-area">
-          <span class="dot"><i class="inner" /></span>
-          <p class="des">提醒</p>
-        </div>
-        <div class="dot-area">
-          <span class="dot"><i class="inner" /></span>
-          <p class="des">督办</p>
-        </div>
-      </div>
-    </div>
+    <van-steps
+      class="state-bar"
+      :active-color="activeColor"
+      :active="active"
+    >
+      <van-step>批示</van-step>
+      <van-step>
+        <template #active-icon>
+          <van-icon name="warning" color="#F5A623" />
+        </template>
+        <span>提醒</span>
+      </van-step>
+      <van-step>
+        <template #active-icon>
+          <van-icon name="browsing-history" color="#F2260C" />
+        </template>
+        <span>督办</span>
+      </van-step>
+    </van-steps>
     <div class="bg-line" />
     <div class="contain">
       <info-input
@@ -41,59 +42,70 @@ import common from '@/mixins/common'
 import InfoInput from '@/components/common/InfoInput'
 import InfoBar from '@/components/result/InfoBar'
 
+const colorMap = ['#1677fe', '#F5A623', '#F2260C']
+
 export default {
   components: {
     InfoInput,
     InfoBar
   },
-  mixins: [common]
+  mixins: [common],
+  data() {
+    return {
+      active: 1
+
+    }
+  },
+  computed: {
+    activeColor() {
+      return colorMap[this.active]
+    }
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
 .dispense
   .state-bar
-    display flex
-    justify-content center
-    align-items center
-    height 90px
-    .state-line
-      display flex
-      align-items center
-      justify-content space-between
-      width 270px
-      height 1px
-      background-color #9b9b9b
-      .dot-area
-        .dot
-          display flex
-          align-items center
-          justify-content center
-          position relative
-          width 22px
-          height 22px
-          border-radius 22px
-          background-color transparent
-          .inner
-            width 12px
-            height 12px
-            border-radius 12px
-            display inline-block
-            background-color #9b9b9b
-        .des
-          position absolute
-          font-size 13px
-          margin-top 7px
-      .active
-        width 22px
-        height 22px
-        border-radius 22px
-        background-color rgba(22,119,254,.25)
-        .dot
-          .inner
-            background-color #1677FE
-        .des
-          color #1677FE
+    padding 20px 40px
+    // height 90px
+    // .state-line
+    //   display flex
+    //   align-items center
+    //   justify-content space-between
+    //   width 270px
+    //   height 1px
+    //   background-color #9b9b9b
+    //   .dot-area
+    //     .dot
+    //       display flex
+    //       align-items center
+    //       justify-content center
+    //       position relative
+    //       width 22px
+    //       height 22px
+    //       border-radius 22px
+    //       background-color transparent
+    //       .inner
+    //         width 12px
+    //         height 12px
+    //         border-radius 12px
+    //         display inline-block
+    //         background-color #9b9b9b
+    //     .des
+    //       position absolute
+    //       font-size 13px
+    //       margin-top 7px
+    //   .active
+    //     width 22px
+    //     height 22px
+    //     border-radius 22px
+    //     background-color rgba(22,119,254,.25)
+    //     .dot
+    //       .inner
+    //         background-color #1677FE
+    //     .des
+    //       color #1677FE
   .bg-line
     height 10px
     background-color #f8f8f7
