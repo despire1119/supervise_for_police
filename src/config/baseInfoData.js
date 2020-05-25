@@ -7,14 +7,14 @@ export const baseInfoList = [
     value: ''
   },
   {
-    type: 'oneLine',
+    type: 'id_number',
     tit: '身份证',
     placeholder: '请填写登记人身份证',
     key: 'identify',
     value: ''
   },
   {
-    type: 'oneLine',
+    type: 'number',
     tit: '电话',
     placeholder: '请填写电话',
     key: 'tel',

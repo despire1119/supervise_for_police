@@ -19,7 +19,7 @@
           <!-- <p>呈请</p>
           <p>报结</p> -->
           <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history-o" size="32" color="#d0021b" />
+          <van-icon name="browsing-history-o" size="32" color="#ef6475" />
           <van-icon name="bulb-o" size="32" color="#F5A623" />
         </div>
       </template>

@@ -4,9 +4,11 @@
       <span class="tit">{{ title }}</span>
       <textarea v-if="config.type === 'textarea'" v-model="value" class="contain-area" :placeholder="placeholder" />
       <input v-else-if="config.type === 'text'" v-model="value" :type="config.type" class="contain" :placeholder="placeholder">
+      <input readonly v-else-if="config.type.includes('number')" v-model="value" type="number" class="contain" :placeholder="placeholder" @click="handleClick">
       <div v-else class="contain" :class="{light: !value}" @click="handleClick">{{ valueToShow || placeholder }}</div>
       <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
     </div>
+    <!-- 选择器 -->
     <van-popup v-model="showPicker" position="bottom">
       <van-picker
         v-if="type === 'select'"
@@ -24,6 +26,13 @@
         @confirm="onConfirm"
       />
     </van-popup>
+    <van-number-keyboard
+      v-if="type.includes('number')"
+      v-model="value"
+      :extra-key="type === 'id_number' ? 'X' : ''"
+      :show="showNumber"
+      @blur="showNumber = false"
+    />
   </div>
 </template>
 
@@ -59,6 +68,7 @@ export default {
       config: multiInput[this.type],
       columns: [1, 2, 3, 4],
       showPicker: false,
+      showNumber: false,
       value: this.type === 'date' ? new Date() : ''
     }
   },
@@ -83,18 +93,8 @@ export default {
       this.showPicker = false
     },
     handleClick() {
-      // switch (this.type) {
-      //   case 'select':
-      //     this.value = this.initValue || this.columns[0]
-      //     break
-      //   case 'date':
-      //     this.value = new Date()
-      //     break
-      //   default:
-      //     break
-      // }
-      // this.type === 'date' && !this.value && (this.value = new Date())
-      this.type && (this.showPicker = true)
+      (this.type === 'select' || this.type === 'date') && (this.showPicker = true)
+      this.type.includes('number') && (this.showNumber = true)
     },
     onChange(picker, value, index) {
       this.value = value

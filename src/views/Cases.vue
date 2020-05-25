@@ -5,7 +5,7 @@
         <case-list />
       </template>
     </select-center>
-    <van-icon class="add" name="add" size="74" color="#1677fe" @click="goBaseInfo" />
+    <van-icon class="add" name="add" size="68" color="#1677fe" @click="goBaseInfo" />
   </div>
 </template>
 

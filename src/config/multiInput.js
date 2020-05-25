@@ -3,6 +3,14 @@ const iconMap = {
   date: require('@/assets/images/riqiiconx@2x.png')
 }
 export default {
+  number: {
+    type: 'number',
+    icon: ''
+  },
+  id_number: {
+    type: 'id_number',
+    icon: ''
+  },
   oneLine: {
     type: 'text',
     icon: ''
