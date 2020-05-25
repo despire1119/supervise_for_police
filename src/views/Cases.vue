@@ -5,7 +5,7 @@
         <case-list />
       </template>
     </select-center>
-    <van-icon class="add" name="add" size="74" color="#1677fe" />
+    <van-icon class="add" name="add" size="74" color="#1677fe" @click="goBaseInfo" />
   </div>
 </template>
 
@@ -22,6 +22,11 @@ export default {
   mixins: [common],
   data() {
     return {
+    }
+  },
+  methods: {
+    goBaseInfo() {
+      this.$router.push({ name: 'BaseInfo' })
     }
   }
 }
@@ -40,4 +45,5 @@ export default {
   bottom 94px
   right 3px
   z-index 9999999
+  opacity .9
 </style>
