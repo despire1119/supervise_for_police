@@ -79,6 +79,7 @@ export default {
   top 0
   left 0
   right 0
+  padding-top 44px
   z-index 9999
   .nav
     display flex

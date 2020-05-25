@@ -16,8 +16,107 @@
       </div>
       <template #right>
         <div class="handler">
-          <p>呈请</p>
-          <p>报结</p>
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history-o" size="32" color="#d0021b" />
+          <van-icon name="bulb-o" size="32" color="#F5A623" />
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs">
+          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
+        </div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history" size="32" color="#1677fe" />
+          <van-icon name="bulb-o" size="32" color="#1677fe" />
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs">
+          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
+        </div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history" size="32" color="#1677fe" />
+          <van-icon name="bulb-o" size="32" color="#1677fe" />
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs">
+          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
+        </div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history" size="32" color="#1677fe" />
+          <van-icon name="bulb-o" size="32" color="#1677fe" />
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">督办</span>
+        <div class="docs">
+          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
+        </div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history-o" size="32" color="#1677fe" />
+          <van-icon name="bulb-o" size="32" color="#1677fe" />
         </div>
       </template>
     </van-swipe-cell>
@@ -42,7 +141,14 @@ export default {
 
 <style lang="stylus" scoped>
 .handler
+  height 100%
+  display flex
+  flex-direction column-reverse
+  align-items center
+  justify-content space-around
   margin-right 10px
+  i
+    padding 0 14px
 .case-list
   font-size 13px
   margin-bottom 76px

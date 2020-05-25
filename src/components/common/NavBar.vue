@@ -47,7 +47,7 @@ export default {
   // text-align center
   font-size 18px
   background-color #1677FE
-  // z-index 999999
+  z-index 999999
   .go-back
     position absolute
     display block
