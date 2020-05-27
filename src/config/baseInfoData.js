@@ -28,6 +28,13 @@ export const baseInfoList = [
     value: ''
   },
   {
+    type: 'date',
+    tit: '报结期限',
+    placeholder: '选择报结时间',
+    key: 'deadLine',
+    value: ''
+  },
+  { // 展示，不填写
     type: 'select',
     tit: '登记形式',
     placeholder: '选择登记形式',
@@ -53,6 +60,13 @@ export const baseInfoList = [
     tit: '包案领导',
     placeholder: '选择包案领导',
     key: 'person',
+    value: ''
+  },
+  {
+    type: 'textarea',
+    tit: '拟办意见',
+    placeholder: '请填写拟办意见',
+    key: 'handler',
     value: ''
   }
 ]

@@ -7,9 +7,7 @@ export default {
       'getMyCases'
     )]
   },
-  mounted() {
-    this.$store.commit('setIfTop', this.$route)
-    this.$store.commit('setIfBottom', this.$route)
-    this.$store.commit('setCurrentTitle', this.$route)
+  created() {
+    this.$store.commit('setCurrentRoute', this.$route)
   }
 }

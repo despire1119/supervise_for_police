@@ -3,13 +3,14 @@
     <van-swipe-cell>
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><i class="inner-state">已登记</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记时间</span><span class="contain">2020-11-10 11:22:33</span></p>
           <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
           <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
           <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
           <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
         </div>
-        <span class="state">督办</span>
+        <span class="state">包案</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
@@ -27,7 +28,31 @@
     <van-swipe-cell>
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+        </div>
+        <span class="state">交办</span>
+        <div class="docs">
+          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
+        </div>
+      </div>
+      <template #right>
+        <div class="handler">
+          <!-- <p>呈请</p>
+          <p>报结</p> -->
+          <van-icon name="completed" size="32" color="#1677fe" />
+          <van-icon name="browsing-history" size="32" color="#1677fe" />
+          <van-icon name="bulb-o" size="32" color="#1677fe" />
+        </div>
+      </template>
+    </van-swipe-cell>
+    <van-swipe-cell>
+      <div class="case">
+        <div class="contain">
+          <p><i class="inner-state">已批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
           <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
           <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
           <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
@@ -51,13 +76,13 @@
     <van-swipe-cell>
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
           <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
           <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
           <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
           <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
         </div>
-        <span class="state">督办</span>
+        <span class="state">恶意投诉</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
@@ -75,13 +100,13 @@
     <van-swipe-cell>
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><i class="inner-state">已批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
           <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
           <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
           <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
           <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
         </div>
-        <span class="state">督办</span>
+        <span class="state">民警维权</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
@@ -91,7 +116,7 @@
           <!-- <p>呈请</p>
           <p>报结</p> -->
           <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history" size="32" color="#1677fe" />
+          <van-icon name="browsing-history-o" size="32" color="#1677fe" />
           <van-icon name="bulb-o" size="32" color="#1677fe" />
         </div>
       </template>
@@ -99,13 +124,13 @@
     <van-swipe-cell>
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已超期</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
+          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
           <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
           <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
           <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
           <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
         </div>
-        <span class="state">督办</span>
+        <span class="state">问责处理</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
@@ -185,16 +210,22 @@ export default {
       margin-right 10px
     .state
       position absolute
-      display block
+      display flex
+      flex-wrap wrap
+      justify-content center
+      align-items center
+      font-size 14px
       top 7px
       right 10px
-      width 40px
-      height 40px
-      line-height 40px
+      width 46px
+      height 46px
       text-align center
-      border-radius 20px
+      border-radius 23px
       color #D0021B
       background-color rgba(208,2,27,.09)
+      padding 0 6px
+    .pos-bottom
+      top 57px
     .docs
       position absolute
       right 10px

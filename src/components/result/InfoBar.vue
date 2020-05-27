@@ -4,7 +4,7 @@
     <!-- <div contenteditable="true" class="contain" readonly>
       收发文办理是机关工作人员一项重要技能，而拟办意见的撰写是收文办理工作的核心，拟办意见是指：收文单位文秘部门对所对收到的文件提出的宋负责人审批
     </div> -->
-    <auto-textarea :readonly="true" :init-value="initValue" />
+    <auto-textarea :readonly="readonly" :init-value="initValue" />
   </div>
 </template>
 
@@ -23,6 +23,10 @@ export default {
     initValue: {
       type: String,
       default: '收发文办理是机关工作人员一项重要技能，而拟办意见的撰写是收文办理工作的核心，拟办意见是指：收文单位文秘部门对所对收到的文件提出的宋负责人审批'
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     }
   },
   data() {

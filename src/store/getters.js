@@ -1,11 +1,13 @@
+import { withBottomList } from '@/config'
+
 export default {
   getBottomBar: state => state.base.bottomBarList,
   getCasesState: state => state.list.casesState,
   getMyCases: state => state.list.myCases,
   getCurrentCaseState: state => state.caseState.currentCaseState,
-  getIfBottom: state => state.page.ifBottom,
-  getIfTop: state => state.page.ifTop,
-  getCurrentTitle: state => state.page.currentTitle,
+  getIfBottom: state => withBottomList.includes(state.page.currentRoute.name),
+  getIfTop: state => state.page.currentRoute.name !== 'Home',
+  getCurrentTitle: state => state.page.currentRoute.meta ? state.page.currentRoute.meta.title : '首页',
   getBaseInfoToCommit: state => {
     const obj = {}
     state.list.baseInfo.forEach(item => {
