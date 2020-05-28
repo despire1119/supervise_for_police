@@ -77,11 +77,11 @@ export const processStateMap = [
     name: '全部舆情',
     active: true
   },
-  {
-    name: '已保存',
-    active: true,
-    type: 'process-gray'
-  },
+  // {
+  //   name: '已保存',
+  //   active: true,
+  //   type: 'process-gray'
+  // },
   {
     name: '已登记',
     active: true,
@@ -159,43 +159,43 @@ export const handleBtns = [
   },
   {
     name: '呈请批示',
-    auth: [[1, 2], []]
+    auth: [[1], []]
   },
   {
     name: '呈请包案',
-    auth: [[9], [0]]
+    auth: [[8], [0]]
   },
   {
     name: '呈请督办',
-    auth: [[9], [1]]
+    auth: [[8], [1]]
   },
   {
     name: '呈请维权',
-    auth: [[8], [0, 1, 2]]
+    auth: [[7], [0, 1, 2]]
   },
   {
     name: '恶意投诉',
-    auth: [[8], [0, 1, 2]]
+    auth: [[7], [0, 1, 2]]
   },
   {
     name: '问责处理',
-    auth: [[8], [0, 1, 2]]
+    auth: [[7], [0, 1, 2]]
   },
   {
     name: '签收',
-    auth: [[4], []]
+    auth: [[3], []]
   },
   {
     name: '发起报结',
-    auth: [[5], []]
+    auth: [[4], []]
   },
   {
     name: '信访审核',
-    auth: [[6], []]
+    auth: [[5], []]
   },
   {
     name: '领导审批',
-    auth: [[7], []]
+    auth: [[6], []]
   }
 ]
 // 案件列表
