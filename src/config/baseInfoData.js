@@ -1,3 +1,4 @@
+// 案件基本信息
 export const baseInfoList = [
   {
     type: 'oneLine',
@@ -69,4 +70,233 @@ export const baseInfoList = [
     key: 'handler',
     value: ''
   }
+]
+// 流程状态表
+export const processStateMap = [
+  {
+    name: '全部舆情',
+    active: true
+  },
+  {
+    name: '已保存',
+    active: true,
+    type: 'process-gray'
+  },
+  {
+    name: '已登记',
+    active: true,
+    type: 'process-green'
+  },
+  {
+    name: '待批示',
+    active: false,
+    type: 'process-warning'
+  },
+  {
+    name: '未签收',
+    active: false,
+    type: 'process-warning'
+  },
+  {
+    name: '已签收',
+    active: false,
+    type: 'process-info'
+  },
+  {
+    name: '审核中',
+    active: false,
+    type: 'process-warning'
+  },
+  {
+    name: '待审批',
+    active: false,
+    type: 'process-warning'
+  },
+  {
+    name: '已报结',
+    active: false,
+    type: 'process-green'
+  },
+  {
+    name: '已超期',
+    active: false,
+    type: 'process-danger'
+  }
+]
+// 案件状态表
+export const caseStateMap = [
+  {
+    name: '交办',
+    type: 'info'
+  },
+  {
+    name: '包案',
+    type: 'warning'
+  }, {
+    name: '督办',
+    type: 'danger'
+  }, {
+    name: '恶意投诉',
+    type: 'danger'
+  }, {
+    name: '民警维权',
+    type: 'danger'
+  }, {
+    name: '问责处理',
+    type: 'danger'
+  }
+]
+// 操作按钮
+export const handleBtns = [
+  {
+    name: '删除',
+    auth: [[1], []],
+    type: ''
+  },
+  {
+    name: '修改',
+    auth: [[1], []]
+  },
+  {
+    name: '呈请批示',
+    auth: [[1, 2], []]
+  },
+  {
+    name: '呈请包案',
+    auth: [[9], [0]]
+  },
+  {
+    name: '呈请督办',
+    auth: [[9], [1]]
+  },
+  {
+    name: '呈请维权',
+    auth: [[8], [0, 1, 2]]
+  },
+  {
+    name: '恶意投诉',
+    auth: [[8], [0, 1, 2]]
+  },
+  {
+    name: '问责处理',
+    auth: [[8], [0, 1, 2]]
+  },
+  {
+    name: '签收',
+    auth: [[4], []]
+  },
+  {
+    name: '发起报结',
+    auth: [[5], []]
+  },
+  {
+    name: '信访审核',
+    auth: [[6], []]
+  },
+  {
+    name: '领导审批',
+    auth: [[7], []]
+  }
+]
+// 案件列表
+export const caseList = [
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 1,
+    caseState: 0,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 2,
+    caseState: 1,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 3,
+    caseState: 2,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 4,
+    caseState: 3,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 5,
+    caseState: 4,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 6,
+    caseState: 5,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 7,
+    caseState: 4,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 8,
+    caseState: 3,
+    ifMine: 0
+  },
+  {
+    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    registerTime: '2020-10-20 11:22:33',
+    registerName: '王建华',
+    way: '采访登记',
+    unit: '桥南派出所',
+    leader: '唐局长',
+    processState: 9,
+    caseState: 3,
+    ifMine: 0
+  },
 ]

@@ -1,16 +1,16 @@
 <template>
   <section class="case-list">
-    <van-swipe-cell>
+    <van-swipe-cell v-for="(item, index) in listToShow" :key="index">
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state">已登记</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记时间</span><span class="contain">2020-11-10 11:22:33</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
+          <p><i class="inner-state" :class="item.processStateClass">{{ item.processStateName }}</i><span class="tit">{{ item.tit }}</span></p>
+          <p><span class="tip">登记时间</span><span class="contain">{{ item.registerTime }}</span></p>
+          <p><span class="tip">登记人</span><span class="contain">{{ item.registerName }}</span></p>
+          <p><span class="tip">登记形式</span><span class="contain">{{ item.way }}</span></p>
+          <p><span class="tip">承办单位</span><span class="contain">{{ item.unit }}</span></p>
+          <p><span class="tip">包办领导</span><span class="contain">{{ item.leader }}</span></p>
         </div>
-        <span class="state">包案</span>
+        <span class="state" :class="item.caseStateClass">{{ item.caseStateName }}</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
@@ -25,130 +25,12 @@
         </div>
       </template>
     </van-swipe-cell>
-    <van-swipe-cell>
-      <div class="case">
-        <div class="contain">
-          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
-        </div>
-        <span class="state">交办</span>
-        <div class="docs">
-          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
-        </div>
-      </div>
-      <template #right>
-        <div class="handler">
-          <!-- <p>呈请</p>
-          <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history" size="32" color="#1677fe" />
-          <van-icon name="bulb-o" size="32" color="#1677fe" />
-        </div>
-      </template>
-    </van-swipe-cell>
-    <van-swipe-cell>
-      <div class="case">
-        <div class="contain">
-          <p><i class="inner-state">已批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
-        </div>
-        <span class="state">督办</span>
-        <div class="docs">
-          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
-        </div>
-      </div>
-      <template #right>
-        <div class="handler">
-          <!-- <p>呈请</p>
-          <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history" size="32" color="#1677fe" />
-          <van-icon name="bulb-o" size="32" color="#1677fe" />
-        </div>
-      </template>
-    </van-swipe-cell>
-    <van-swipe-cell>
-      <div class="case">
-        <div class="contain">
-          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
-        </div>
-        <span class="state">恶意投诉</span>
-        <div class="docs">
-          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
-        </div>
-      </div>
-      <template #right>
-        <div class="handler">
-          <!-- <p>呈请</p>
-          <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history" size="32" color="#1677fe" />
-          <van-icon name="bulb-o" size="32" color="#1677fe" />
-        </div>
-      </template>
-    </van-swipe-cell>
-    <van-swipe-cell>
-      <div class="case">
-        <div class="contain">
-          <p><i class="inner-state">已批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
-        </div>
-        <span class="state">民警维权</span>
-        <div class="docs">
-          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
-        </div>
-      </div>
-      <template #right>
-        <div class="handler">
-          <!-- <p>呈请</p>
-          <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history-o" size="32" color="#1677fe" />
-          <van-icon name="bulb-o" size="32" color="#1677fe" />
-        </div>
-      </template>
-    </van-swipe-cell>
-    <van-swipe-cell>
-      <div class="case">
-        <div class="contain">
-          <p><i class="inner-state">待批示</i><span class="tit">李口收费告诉公路出入口出入口出入口出入口</span></p>
-          <p><span class="tip">登记人</span><span class="contain">王建华</span></p>
-          <p><span class="tip">登记形式</span><span class="contain">采访登记</span></p>
-          <p><span class="tip">承办单位</span><span class="contain">北京市西直门公安派出所</span></p>
-          <p><span class="tip">包办领导</span><span class="contain">王建</span></p>
-        </div>
-        <span class="state">问责处理</span>
-        <div class="docs">
-          <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
-        </div>
-      </div>
-      <template #right>
-        <div class="handler">
-          <!-- <p>呈请</p>
-          <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
-          <van-icon name="browsing-history-o" size="32" color="#1677fe" />
-          <van-icon name="bulb-o" size="32" color="#1677fe" />
-        </div>
-      </template>
-    </van-swipe-cell>
   </section>
 </template>
 
 <script>
+import { processStateMap, caseStateMap } from '@/config/baseInfoData'
+
 export default {
   props: {
     list: {
@@ -159,6 +41,17 @@ export default {
   data() {
     return {
       currentList: this.list
+    }
+  },
+  computed: {
+    listToShow() {
+      return this.currentList.map(item => {
+        item.processStateName = processStateMap[item.processState]['name'] || ''
+        item.processStateClass = processStateMap[item.processState]['type'] || ''
+        item.caseStateName = caseStateMap[item.caseState]['name'] || ''
+        item.caseStateClass = caseStateMap[item.caseState]['type'] || ''
+        return item
+      })
     }
   }
 }
@@ -176,9 +69,11 @@ export default {
     padding 0 14px
 .case-list
   font-size 13px
+  // margin 0 10px 76px
   margin-bottom 76px
   .case
     position relative
+    // margin-top 10px
     margin 10px 10px 0
     background-color #fff
     box-shadow 0px 0px 4px 0px rgba(0,0,0,0.15)
@@ -221,9 +116,28 @@ export default {
       height 46px
       text-align center
       border-radius 23px
+      padding 0 6px
+    .process-green
+      border-color #07c160
+      color #07c160
+    .process-info
+      border-color #1677fe
+      color #1677fe
+    .process-gray
+      border-color #999
+      color #999
+    .process-warning
+      border-color #ff976a
+      color #ff976a
+    .info
+      color #1677fe
+      background-color rgba(26, 137, 250, .09)
+    .warning
+      color #ed6a0c
+      background-color rgba(255, 151, 106, .3)
+    .danger
       color #D0021B
       background-color rgba(208,2,27,.09)
-      padding 0 6px
     .pos-bottom
       top 57px
     .docs

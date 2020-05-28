@@ -14,7 +14,7 @@
       animated
       sticky
     >
-      <van-tab v-for="item in getCasesState" :key="item.id" :title="item.name" class="with-pad">
+      <van-tab v-for="(item, index) in getCasesState" :key="index" :title="item.name" class="with-pad">
         <slot name="caseList" />
       </van-tab>
     </van-tabs>
