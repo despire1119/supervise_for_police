@@ -302,7 +302,7 @@ export const caseList = [
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
-    processState: 7,
+    processState: 1,
     caseNormalState: 1,
     // caseAbnormalState: 0,
     ifMine: 0
@@ -314,7 +314,7 @@ export const caseList = [
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
-    processState: 8,
+    processState: 2,
     caseNormalState: 0,
     // caseAbnormalState: 2,
     ifMine: 0

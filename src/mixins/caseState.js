@@ -1,3 +1,4 @@
+import { mapGetters } from 'vuex'
 import { processStateMap, caseStateMap, handleBtns } from '@/config/baseInfoData'
 
 export default {
@@ -7,17 +8,19 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'getCurrentState'
+    ]),
     listToShow() {
-      const list = Object.entries(caseStateMap)
-      const caseStateList = [...list[0][1], ...list[1][1]]
-      console.log(caseStateList)
-      return this.currentList.map(item => {
-        if (item.processState < processStateMap.length) {
-          item.processStateName = processStateMap[item.processState]['name'] || ''
-          item.processStateClass = processStateMap[item.processState]['type'] || ''
-          item.caseStateName = item.caseAbnormalState ? caseStateMap['abnormalState'][item.caseAbnormalState]['name'] : caseStateMap['normalState'][item.caseNormalState]['name']
-          item.caseStateClass = item.caseAbnormalState ? caseStateMap['abnormalState'][item.caseAbnormalState]['type'] : caseStateMap['normalState'][item.caseNormalState]['type']
-        }
+      return this.filterByState(this.currentList, this.getCurrentState).map(item => {
+        item.processStateName = processStateMap[item.processState]['name'] || ''
+        item.processStateClass = processStateMap[item.processState]['type'] || ''
+        item.caseStateName = item.caseAbnormalState
+          ? caseStateMap['abnormalState'][item.caseAbnormalState]['name']
+          : caseStateMap['normalState'][item.caseNormalState]['name']
+        item.caseStateClass = item.caseAbnormalState
+          ? caseStateMap['abnormalState'][item.caseAbnormalState]['type']
+          : caseStateMap['normalState'][item.caseNormalState]['type']
         // 案件状态
         item.ifCaseState = item.processState !== 1
         // 按钮
@@ -32,7 +35,11 @@ export default {
       })
     }
   },
-  created() {
-    console.log(this.listToShow)
+  methods: {
+    filterByState(list, state) {
+      return list.filter(item => {
+        return state === item.processState || state === 0
+      })
+    }
   }
 }
