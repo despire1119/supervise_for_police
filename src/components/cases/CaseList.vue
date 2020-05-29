@@ -52,7 +52,7 @@ export default {
   justify-content space-around
   margin-right 10px
   overflow hidden
-  border-radius 6px
+  border-radius 8px
   min-width 92px
   button
     // border-top 1px solid #fff

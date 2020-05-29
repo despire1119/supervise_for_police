@@ -139,7 +139,7 @@ export const caseStateMap = {
   abnormalState: [
     {
       name: '恶意投诉',
-      type: 'default',
+      type: 'danger',
       id: 3
     },
     {
