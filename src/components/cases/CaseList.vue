@@ -3,25 +3,26 @@
     <van-swipe-cell v-for="(item, index) in listToShow" :key="index">
       <div class="case">
         <div class="contain">
-          <p><i class="inner-state" :class="item.processStateClass">{{ item.processStateName }}</i><span class="tit">{{ item.tit }}</span></p>
+          <p><i v-if="item.processStateName" class="inner-state" :class="item.processStateClass || 'process-gray'">{{ item.processStateName }}</i><span class="tit">{{ item.tit }}</span></p>
           <p><span class="tip">登记时间</span><span class="contain">{{ item.registerTime }}</span></p>
           <p><span class="tip">登记人</span><span class="contain">{{ item.registerName }}</span></p>
           <p><span class="tip">登记形式</span><span class="contain">{{ item.way }}</span></p>
           <p><span class="tip">承办单位</span><span class="contain">{{ item.unit }}</span></p>
           <p><span class="tip">包办领导</span><span class="contain">{{ item.leader }}</span></p>
         </div>
-        <span class="state" :class="item.caseStateClass">{{ item.caseStateName }}</span>
+        <span v-if="item.caseStateName && item.ifCaseState" class="state" :class="item.caseStateClass">{{ item.caseStateName }}</span>
         <div class="docs">
           <van-button :icon="require('@/assets/images/wenjian@2x.png')" plain round size="small" color="#1677fe">舆情文书</van-button>
         </div>
       </div>
-      <template #right>
+      <template v-if="item.btns.length" #right>
         <div class="handler">
           <!-- <p>呈请</p>
           <p>报结</p> -->
-          <van-icon name="completed" size="32" color="#1677fe" />
+          <!-- <van-icon name="completed" size="32" color="#1677fe" />
           <van-icon name="browsing-history-o" size="32" color="#ef6475" />
-          <van-icon name="bulb-o" size="32" color="#F5A623" />
+          <van-icon name="bulb-o" size="32" color="#F5A623" /> -->
+          <van-button v-for="(btn, innerIndex) in item.btns" :key="innerIndex" square hairline size="large" :type="btn.type">{{ btn.name }}</van-button>
         </div>
       </template>
     </van-swipe-cell>
@@ -29,29 +30,14 @@
 </template>
 
 <script>
-import { processStateMap, caseStateMap } from '@/config/baseInfoData'
+import caseState from '@/mixins/caseState'
 
 export default {
+  mixins: [caseState],
   props: {
     list: {
       type: Array,
       default: () => []
-    }
-  },
-  data() {
-    return {
-      currentList: this.list
-    }
-  },
-  computed: {
-    listToShow() {
-      return this.currentList.map(item => {
-        item.processStateName = processStateMap[item.processState]['name'] || ''
-        item.processStateClass = processStateMap[item.processState]['type'] || ''
-        item.caseStateName = caseStateMap[item.caseState]['name'] || ''
-        item.caseStateClass = caseStateMap[item.caseState]['type'] || ''
-        return item
-      })
     }
   }
 }
@@ -65,8 +51,14 @@ export default {
   align-items center
   justify-content space-around
   margin-right 10px
-  i
+  overflow hidden
+  border-radius 6px
+  min-width 92px
+  button
+    // border-top 1px solid #fff
+    border-bottom 1px solid #fff
     padding 0 14px
+    flex 1
 .case-list
   font-size 13px
   // margin 0 10px 76px
