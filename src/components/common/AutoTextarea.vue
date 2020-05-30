@@ -1,6 +1,7 @@
 <template>
   <div class="auto-textarea">
-    <textarea ref="textarea" v-model="value" :readonly="!readOnly" :style="{'height': height}" class="textarea" />
+    <textarea ref="textarea" v-model="value" :readonly="!readonly" :style="{'height': height}" class="textarea" :class="{'if-write': readonly}" />
+    <!-- <textarea ref="textarea" v-model="value" :readonly="false" :style="{'height': height}" class="textarea" /> -->
   </div>
 </template>
 
@@ -9,7 +10,7 @@ import calcTextareaHeight from '@/utils/calcTextareaHeight'
 export default {
   naem: 'auto-textarea',
   props: {
-    readOnly: {
+    readonly: {
       type: Boolean,
       default: false
     },
@@ -49,4 +50,6 @@ export default {
     background-color #f9f9f9
     border 1px solid #e5e5e5
     border-radius 4px
+.if-write
+  background-color #fff
 </style>

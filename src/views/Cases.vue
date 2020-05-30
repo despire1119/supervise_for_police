@@ -2,7 +2,7 @@
   <div class="cases">
     <select-center>
       <template #caseList>
-        <case-list />
+        <case-list :list="caseList" />
       </template>
     </select-center>
     <van-icon class="add" name="add" size="68" color="#1677fe" @click="goBaseInfo" />
@@ -13,6 +13,7 @@
 import SelectCenter from '@/components/cases/SelectCenter'
 import CaseList from '@/components/cases/CaseList'
 import common from '@/mixins/common'
+import { caseList } from '@/config/baseInfoData'
 
 export default {
   components: {
@@ -22,6 +23,7 @@ export default {
   mixins: [common],
   data() {
     return {
+      caseList: caseList
     }
   },
   methods: {

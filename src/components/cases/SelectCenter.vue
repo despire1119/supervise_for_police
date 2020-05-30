@@ -13,8 +13,9 @@
       offset-top="44"
       animated
       sticky
+      @click="onClick"
     >
-      <van-tab v-for="item in getCasesState" :key="item.id" :title="item.name" class="with-pad">
+      <van-tab v-for="(item, index) in getCasesState" :key="index" :title="item.name" class="with-pad">
         <slot name="caseList" />
       </van-tab>
     </van-tabs>
@@ -52,7 +53,8 @@ export default {
   computed: {
     ...mapGetters([
       'getCasesState',
-      'getMyCases'
+      'getMyCases',
+      'getCurrentState'
     ])
   },
   methods: {
@@ -61,6 +63,10 @@ export default {
     },
     chooseMine(id) {
       this.$store.commit('ifMyCases', id)
+    },
+    onClick(index) {
+      this.$store.commit('setCurrentState', index)
+      console.log(this.getCurrentState)
     }
   }
 }

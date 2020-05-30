@@ -1,34 +1,8 @@
-import { baseInfoList } from '@/config/baseInfoData'
+import { baseInfoList, processStateMap } from '@/config/baseInfoData'
 
 export default {
   state: {
-    casesState: [
-      {
-        name: '全部舆情',
-        id: 0,
-        active: true
-      },
-      {
-        name: '待处理',
-        id: 1,
-        active: true
-      },
-      {
-        name: '已处理',
-        id: 2,
-        active: false
-      },
-      {
-        name: '超期未結',
-        id: 3,
-        active: false
-      },
-      {
-        name: '超期已結',
-        id: 4,
-        active: false
-      }
-    ],
+    casesState: processStateMap,
     myCases: [
       {
         name: '我的輿情',

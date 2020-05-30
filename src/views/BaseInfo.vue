@@ -12,9 +12,10 @@
       <van-button
         :loading="false"
         loading-text="正在生成舆情"
-        text="下一步"
+        text="呈请批示"
         type="info"
         size="large"
+        @click="clickHandler"
       />
     </div>
 
@@ -49,6 +50,11 @@ export default {
   },
   created() {
     console.log('getBase', this.getBaseInfoToCommit)
+  },
+  methods: {
+    clickHandler() {
+      this.$router.push({ name: 'Dispense' })
+    }
   }
 }
 </script>
@@ -59,4 +65,6 @@ export default {
 .btn-area
   padding 34px
   padding-bottom 0
+  button
+    height 40px
 </style>

@@ -28,12 +28,14 @@
       />
       <info-bar
         tit="拟办意见"
+        :readonly="false"
       />
       <info-bar
         tit="领导批示"
+        :readonly="true"
       />
     </div>
-    <van-button class="btn-dispense" type="info" size="large">交办</van-button>
+    <van-button class="btn-dispense" type="info" size="large" @click="handleClick">交办</van-button>
   </div>
 </template>
 
@@ -59,6 +61,11 @@ export default {
   computed: {
     activeColor() {
       return colorMap[this.active]
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$router.push({ name: 'Result' })
     }
   }
 }
