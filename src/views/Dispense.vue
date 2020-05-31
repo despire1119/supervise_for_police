@@ -36,6 +36,7 @@
       />
     </div>
     <van-button class="btn-dispense" type="info" size="large" @click="handleClick">交办</van-button>
+    <van-button class="btn-dispense" type="danger" size="large" @click="handleClick">驳回</van-button>
   </div>
 </template>
 

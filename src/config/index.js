@@ -1,4 +1,4 @@
-export const withBottomList = ['Home', 'Cases'] // 需要底部导航栏的页面
+export const withBottomList = ['Home', 'Cases', 'Charts'] // 需要底部导航栏的页面
 // 登记形式列表
 export const waysList = [
   {

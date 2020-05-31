@@ -2,8 +2,8 @@
   <div class="multi-input">
     <div class="info-input" :class="{'if-oneline': type !== 'textarea'}">
       <span class="tit">{{ title }}</span>
-      <textarea v-if="config.type === 'textarea'" v-model="value" class="contain-area" :placeholder="placeholder" />
-      <input v-else-if="config.type === 'text'" v-model="value" :type="config.type" class="contain" :placeholder="placeholder">
+      <textarea v-if="config.type === 'textarea'" v-model="value" class="contain-area" :placeholder="placeholder" :readonly="config.readonly" />
+      <input v-else-if="config.type === 'text'" v-model="value" :type="config.type" :readonly="config.readonly" class="contain" :placeholder="placeholder">
       <input v-else-if="config.type.includes('number')" v-model="value" readonly class="contain" :placeholder="placeholder" @click="handleClick">
       <div v-else class="contain" :class="{light: !value}" @click="handleClick">{{ valueToShow || placeholder }}</div>
       <i v-if="config.icon" class="icon" :style="{backgroundImage:`url(${config.icon})`}" />
@@ -11,7 +11,7 @@
     <!-- 选择器 -->
     <van-popup v-model="showPicker" position="bottom">
       <van-picker
-        v-if="type === 'select'"
+        v-if="type === 'select' && !config.readonly"
         :columns="columns"
         :title="placeholder"
         show-toolbar
@@ -19,7 +19,7 @@
         @confirm="onConfirm"
       />
       <van-datetime-picker
-        v-if="type === 'date'"
+        v-if="type === 'date' && !config.readonly"
         v-model="value"
         :title="placeholder"
         @cancel="showPicker = false"
@@ -27,7 +27,7 @@
       />
     </van-popup>
     <van-number-keyboard
-      v-if="type.includes('number')"
+      v-if="type.includes('number') && !config.readonly"
       v-model="value"
       :extra-key="type === 'id_number' ? 'X' : ''"
       :show="showNumber"
@@ -66,10 +66,10 @@ export default {
   data() {
     return {
       config: multiInput[this.type],
-      columns: [1, 2, 3, 4],
+      columns: ['桥南派出所', '桥北派出所', '桥东派出所', '桥西派出所'],
       showPicker: false,
       showNumber: false,
-      value: this.type === 'date' ? new Date() : ''
+      value: this.initValue ? this.initValue : (this.type === 'date' ? new Date() : '')
     }
   },
   computed: {

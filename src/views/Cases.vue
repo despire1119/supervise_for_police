@@ -2,7 +2,8 @@
   <div class="cases">
     <select-center>
       <template #caseList>
-        <case-list :list="caseList" />
+        <case-list v-if="caseList.length" :list="caseList" />
+        <van-empty v-else description="没有该状态舆情" />
       </template>
     </select-center>
     <van-icon class="add" name="add" size="68" color="#1677fe" @click="goBaseInfo" />
@@ -32,12 +33,13 @@ export default {
     ])
   },
   watch: {
-    '$store.state.currentCaseList': {
-      handler: newValue => {
+    '$store.state.list.currentCaseList': {
+      deep: true,
+      handler: function(newValue, oldValue) {
+        // console.log(this)
         this.caseList = this.getCurrentCaseList
-        console.log('watcher', newValue)
-      },
-      deep: true
+        console.log(newValue, oldValue)
+      }
     }
   },
   created() {
@@ -45,7 +47,7 @@ export default {
   },
   methods: {
     goBaseInfo() {
-      this.$router.push({ name: 'BaseInfo' })
+      this.$router.push({ name: 'BaseInfo', params: null })
     }
   }
 }

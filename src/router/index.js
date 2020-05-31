@@ -44,6 +44,14 @@ const routes = [
     meta: {
       title: '批示交办'
     }
+  },
+  {
+    path: '/charts',
+    name: 'Charts',
+    component: () => import('../views/DataReview.vue'),
+    meta: {
+      title: '分析研判'
+    }
   }
   // {
   //   path: '/about',

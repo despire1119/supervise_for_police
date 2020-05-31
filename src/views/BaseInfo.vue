@@ -7,6 +7,7 @@
       :title="item.tit"
       :obj-key="item.key"
       :placeholder="item.placeholder"
+      :init-value="item.value"
     />
     <div class="btn-area">
       <van-button
@@ -15,6 +16,14 @@
         text="呈请批示"
         type="info"
         size="large"
+        @click="clickHandler"
+      />
+      <van-button
+        :loading="false"
+        text="保存"
+        type="info"
+        size="large"
+        style="margin-top: 20px;background: #f1f1f1;border-color: #f1f1f1"
         @click="clickHandler"
       />
     </div>

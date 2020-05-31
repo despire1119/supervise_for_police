@@ -40,6 +40,36 @@ export default {
     },
     setCurrentCaseList(state, payload) {
       state.currentCaseList = payload
+    },
+    changeProcessState(state, payload) {
+      state.currentCaseList = state.currentCaseList.map(eve => {
+        if (payload.id === eve.id) {
+          eve.processState++
+        }
+        return eve
+      })
+    },
+    changeCaseState(state, payload) {
+      state.currentCaseList = state.currentCaseList.map(eve => {
+        if (payload.id === eve.id) {
+          // if (eve.caseAbnormalState) {
+          //   eve.caseNormalState = 0
+          //   eve.processState = 1
+          // } else {
+          //   eve.caseAbnormalState =
+          // }
+          console.log(payload)
+          eve.caseAbnormalState = payload.target
+          eve.caseNormalState = 0
+          eve.processState = 1
+        }
+        return eve
+      })
+    },
+    deleteCase(state, payload) {
+      state.currentCaseList = state.currentCaseList.filter(eve => {
+        return !(payload.id === eve.id)
+      })
     }
   }
 }

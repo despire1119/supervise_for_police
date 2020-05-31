@@ -17,8 +17,13 @@
       <van-button class="info-inner" type="info">报结呈请</van-button>
     </p>
     <p class="handler">
-      <!-- <button style="background-color: #F2260C">申诉</button> -->
-      <van-button type="danger">申诉</van-button>
+      <van-button class="info-inner" type="primary">审核通过</van-button>
+    </p>
+    <p class="handler">
+      <van-button class="info-inner" type="warning">予以报结</van-button>
+    </p>
+    <p class="handler">
+      <van-button type="danger">驳回</van-button>
     </p>
   </div>
 </template>
@@ -61,8 +66,8 @@ export default {
   justify-content space-around
   margin auto
   margin-top 25px
-  .info-inner
-    background-color #1677fe
+  // .info-inner
+  //   background-color #1677fe
   button
     font-size 16px
     color #fff

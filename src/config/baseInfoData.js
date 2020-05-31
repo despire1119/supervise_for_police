@@ -4,7 +4,7 @@ export const baseInfoList = [
     type: 'oneLine',
     tit: '登记人',
     placeholder: '请填写登记人',
-    key: 'assign',
+    key: 'registerName',
     value: ''
   },
   {
@@ -25,7 +25,7 @@ export const baseInfoList = [
     type: 'date',
     tit: '登记时间',
     placeholder: '选择登记时间',
-    key: 'date',
+    key: 'registerTime',
     value: ''
   },
   {
@@ -60,7 +60,7 @@ export const baseInfoList = [
     type: 'select',
     tit: '包案领导',
     placeholder: '选择包案领导',
-    key: 'person',
+    key: 'leader',
     value: ''
   },
   {
@@ -138,14 +138,14 @@ export const caseStateMap = {
   ],
   abnormalState: [
     {
-      name: '恶意投诉',
-      type: 'danger',
-      id: 3
-    },
-    {
       name: '民警维权',
       type: 'danger',
       id: 4
+    },
+    {
+      name: '恶意投诉',
+      type: 'danger',
+      id: 3
     },
     {
       name: '问责处理',
@@ -164,64 +164,80 @@ export const handleBtns = [
     callback: () => {}
   },
   {
+    key: 'modify',
     name: '修改',
     auth: [[1], [0, 1, 2], [0, 1, 2]],
     type: 'default'
   },
   {
-    key: 'instruct',
+    key: 'toInstruct',
     name: '呈请批示',
     auth: [[1], [0, 1, 2], [0, 1, 2]],
     type: 'info'
   },
   {
+    key: 'instruct',
     name: '批示',
     auth: [[2], [0, 1, 2], [0, 1, 2]],
     type: 'info'
   },
   {
+    key: 'signIn',
     name: '签收',
     auth: [[3], [0, 1, 2], [0, 1, 2]],
     type: 'primary'
   },
   {
+    key: 'target',
     name: '报结', // 发起报结
     auth: [[4], [0, 1, 2], [0, 1, 2]],
     type: 'default'
   },
   {
+    key: 'goCharge',
     name: '审核', // 信访部门审核
     auth: [[5], [0, 1, 2], [0, 1, 2]],
     type: 'warning'
   },
   {
+    key: 'charge',
     name: '审批', // 领导审批
     auth: [[6], [0, 1, 2], [0, 1, 2]],
     type: 'info'
   },
   {
+    key: 'contracting',
     name: '呈请包案',
     auth: [[8], [0], [0, 1, 2]],
+    target: 1,
     type: 'warning'
   },
   {
+    key: 'supervise',
     name: '呈请督办',
     auth: [[8], [1], [0, 1, 2]],
+    target: 2,
     type: 'danger'
   },
   {
+    key: 'rights',
     name: '呈请维权',
     auth: [[7], [0, 1, 2], []],
+    target: 0,
     type: 'danger'
   },
   {
+    key: 'complaint',
     name: '恶意投诉',
     auth: [[7], [0, 1, 2], []],
+    target: 1,
     type: 'danger'
   },
   {
+    key: 'account',
     name: '问责处理',
     auth: [[7], [0, 1, 2], []],
+    target: 2,
     type: 'danger'
   }
 ]
@@ -229,15 +245,20 @@ export const handleBtns = [
 export const caseList = [
   {
     id: '00001',
-    tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
+    tit: '完整流程案件完整流程案件完整流程案件完整流程案件',
     registerTime: '2020-10-20 11:22:33',
+    deadLine: '2020-10-30 11:22:33',
     registerName: '王建华',
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
     processState: 1,
-    caseNormalState: 1,
-    ifMine: 0
+    caseNormalState: 0,
+    ifMine: 0,
+    identify: '402291199212929934',
+    tel: '15695290520',
+    contain: '主要诉求主要诉求主要诉求主要诉求主要诉求主要诉求',
+    handler: '拟办意见拟办意见拟办意见拟办意见拟办意见拟办意见拟办意见'
   },
   {
     id: '00002',
@@ -249,8 +270,8 @@ export const caseList = [
     leader: '唐局长',
     processState: 7,
     caseNormalState: 1,
-    caseAbnormalState: 2,
-    ifMine: 0
+    caseAbnormalState: 0,
+    ifMine: 1
   },
   {
     id: '00003',
@@ -263,7 +284,7 @@ export const caseList = [
     processState: 3,
     caseNormalState: 2,
     caseAbnormalState: 1,
-    ifMine: 0
+    ifMine: 1
   },
   {
     id: '00004',
@@ -276,7 +297,7 @@ export const caseList = [
     processState: 4,
     caseNormalState: 2,
     // caseAbnormalState: 2,
-    ifMine: 0
+    ifMine: 1
   },
   {
     id: '00005',
@@ -289,7 +310,7 @@ export const caseList = [
     processState: 7,
     caseNormalState: 1,
     caseAbnormalState: 2,
-    ifMine: 0
+    ifMine: 1
   },
   {
     id: '00006',
@@ -302,7 +323,7 @@ export const caseList = [
     processState: 6,
     caseNormalState: 0,
     // caseAbnormalState: 4,
-    ifMine: 0
+    ifMine: 1
   },
   {
     id: '00007',
@@ -315,7 +336,7 @@ export const caseList = [
     processState: 1,
     caseNormalState: 1,
     // caseAbnormalState: 0,
-    ifMine: 0
+    ifMine: 1
   },
   {
     id: '00008',

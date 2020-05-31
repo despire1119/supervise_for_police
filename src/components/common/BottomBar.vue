@@ -20,6 +20,16 @@ export default {
   methods: {
     chooseItem(i) {
       this.$store.commit('setBottomBarList', i)
+      switch (i) {
+        case 0:
+          this.$router.push({ name: 'Home' })
+          break
+        case 1:
+          this.$router.push({ name: 'Charts' })
+          break
+        default:
+          break
+      }
     }
   }
 }

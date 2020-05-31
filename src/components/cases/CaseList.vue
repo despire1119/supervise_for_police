@@ -1,7 +1,7 @@
 <template>
-  <section class="case-list">
+  <section v-if="listToShow" class="case-list">
     <van-swipe-cell v-for="(item, index) in listToShow" :key="index">
-      <div class="case">
+      <div class="case" @click="goDetail(item)">
         <div class="contain">
           <p><i v-if="item.processStateName" class="inner-state" :class="item.processStateClass || 'process-gray'">{{ item.processStateName }}</i><span class="tit">{{ item.tit }}</span></p>
           <p><span class="tip">登记时间</span><span class="contain">{{ item.registerTime }}</span></p>
@@ -22,7 +22,7 @@
           <!-- <van-icon name="completed" size="32" color="#1677fe" />
           <van-icon name="browsing-history-o" size="32" color="#ef6475" />
           <van-icon name="bulb-o" size="32" color="#F5A623" /> -->
-          <van-button v-for="(btn, innerIndex) in item.btns" :key="innerIndex" square hairline size="large" :type="btn.type" @click="changeState(item, btn)">{{ btn.name }}</van-button>
+          <van-button v-for="(btn, innerIndex) in item.btns" :key="innerIndex" square hairline size="large" :type="btn.type" @click="handler(item, btn)">{{ btn.name }}</van-button>
         </div>
       </template>
     </van-swipe-cell>
@@ -41,8 +41,9 @@ export default {
     }
   },
   methods: {
-    changeState(item, btn) {
-      this.handler(item, btn)
+    goDetail(item) {
+      console.log(item)
+      this.$router.push({ name: 'BaseInfo', params: item })
     }
   }
 }
