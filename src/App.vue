@@ -39,7 +39,7 @@ export default {
 </script>
 <style lang="stylus">
 #app
-  // font-family webfont
+  font-family webfont
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   padding-bottom 56px

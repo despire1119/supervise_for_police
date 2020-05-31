@@ -22,7 +22,7 @@
           <!-- <van-icon name="completed" size="32" color="#1677fe" />
           <van-icon name="browsing-history-o" size="32" color="#ef6475" />
           <van-icon name="bulb-o" size="32" color="#F5A623" /> -->
-          <van-button v-for="(btn, innerIndex) in item.btns" :key="innerIndex" square hairline size="large" :type="btn.type">{{ btn.name }}</van-button>
+          <van-button v-for="(btn, innerIndex) in item.btns" :key="innerIndex" square hairline size="large" :type="btn.type" @click="changeState(item, btn)">{{ btn.name }}</van-button>
         </div>
       </template>
     </van-swipe-cell>
@@ -38,6 +38,11 @@ export default {
     list: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    changeState(item, btn) {
+      this.handler(item, btn)
     }
   }
 }

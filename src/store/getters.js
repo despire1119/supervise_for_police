@@ -17,5 +17,6 @@ export default {
     })
     return obj
   }, // 提取提交信息
-  getCurrentState: state => state.base.currentState
+  getCurrentState: state => state.base.currentState,
+  getCurrentCaseList: state => state.list.currentCaseList
 }

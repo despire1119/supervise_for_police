@@ -157,9 +157,11 @@ export const caseStateMap = {
 // 操作按钮
 export const handleBtns = [
   {
+    key: 'del',
     name: '删除',
     auth: [[1], [0, 1, 2], [0, 1, 2]],
-    type: 'danger'
+    type: 'danger',
+    callback: () => {}
   },
   {
     name: '修改',
@@ -167,6 +169,7 @@ export const handleBtns = [
     type: 'default'
   },
   {
+    key: 'instruct',
     name: '呈请批示',
     auth: [[1], [0, 1, 2], [0, 1, 2]],
     type: 'info'
@@ -225,17 +228,19 @@ export const handleBtns = [
 // 案件列表
 export const caseList = [
   {
+    id: '00001',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
-    processState: 8,
+    processState: 1,
     caseNormalState: 1,
     ifMine: 0
   },
   {
+    id: '00002',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -248,6 +253,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00003',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -260,6 +266,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00004',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -272,6 +279,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00005',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -284,6 +292,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00006',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -296,6 +305,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00007',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -308,6 +318,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00008',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',
@@ -320,6 +331,7 @@ export const caseList = [
     ifMine: 0
   },
   {
+    id: '00009',
     tit: '舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称舆情名称',
     registerTime: '2020-10-20 11:22:33',
     registerName: '王建华',

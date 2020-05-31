@@ -1,4 +1,4 @@
-import { baseInfoList, processStateMap } from '@/config/baseInfoData'
+import { baseInfoList, processStateMap, caseList } from '@/config/baseInfoData'
 
 export default {
   state: {
@@ -15,7 +15,8 @@ export default {
         active: false
       }
     ],
-    baseInfo: baseInfoList
+    baseInfo: baseInfoList,
+    currentCaseList: caseList
   },
   mutations: {
     chooseCase(state, id) {
@@ -36,6 +37,9 @@ export default {
         item.key === ret[0] && (item.value = ret[1])
         return item
       })
+    },
+    setCurrentCaseList(state, payload) {
+      state.currentCaseList = payload
     }
   }
 }

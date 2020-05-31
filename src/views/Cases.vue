@@ -10,10 +10,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import SelectCenter from '@/components/cases/SelectCenter'
 import CaseList from '@/components/cases/CaseList'
 import common from '@/mixins/common'
-import { caseList } from '@/config/baseInfoData'
 
 export default {
   components: {
@@ -23,8 +23,25 @@ export default {
   mixins: [common],
   data() {
     return {
-      caseList: caseList
+      caseList: this.getCurrentCaseList
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getCurrentCaseList'
+    ])
+  },
+  watch: {
+    '$store.state.currentCaseList': {
+      handler: newValue => {
+        this.caseList = this.getCurrentCaseList
+        console.log('watcher', newValue)
+      },
+      deep: true
+    }
+  },
+  created() {
+    this.caseList = this.getCurrentCaseList
   },
   methods: {
     goBaseInfo() {

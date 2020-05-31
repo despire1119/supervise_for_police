@@ -36,10 +36,28 @@ export default {
     }
   },
   methods: {
+    // 按状态过滤列表
     filterByState(list, state) {
       return list.filter(item => {
         return state === item.processState || state === 0
       })
+    },
+    handler(item, btn) {
+      switch (btn.key) {
+        case 'del':
+          // this.currentList = this.currentList.filter(eve => {
+          //   return !item.id === eve.id
+          // })
+          this.$store.commit('setCurrentCaseList', this.currentList.filter(eve => {
+            return !(item.id === eve.id)
+          }))
+          break
+        case 'instruct':
+          console.log(item)
+          break
+        default:
+          break
+      }
     }
   }
 }
