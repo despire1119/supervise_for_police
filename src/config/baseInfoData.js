@@ -2,6 +2,13 @@
 export const baseInfoList = [
   {
     type: 'oneLine',
+    tit: '舆情概要',
+    placeholder: '请填写登记人',
+    key: 'tit',
+    value: ''
+  },
+  {
+    type: 'oneLine',
     tit: '登记人',
     placeholder: '请填写登记人',
     key: 'registerName',

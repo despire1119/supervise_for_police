@@ -24,7 +24,7 @@
         type="info"
         size="large"
         style="margin-top: 20px;background: #f1f1f1;border-color: #f1f1f1"
-        @click="clickHandler"
+        @click="save"
       />
     </div>
 
@@ -58,11 +58,16 @@ export default {
     ])
   },
   created() {
-    console.log('getBase', this.getBaseInfoToCommit)
+    console.log('11111111111', this.$route.params.id)
   },
   methods: {
     clickHandler() {
       this.$router.push({ name: 'Dispense' })
+    },
+    save() {
+      console.log(this.$route.params)
+      this.$store.commit('addCurrentCaseList', Object.assign(this.getBaseInfoToCommit, { id: this.$route.params.id || '' }))
+      this.$router.push({ name: 'Cases' })
     }
   }
 }

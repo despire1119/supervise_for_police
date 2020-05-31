@@ -14,16 +14,16 @@
       <info-bar tit="处理结果" init-value="同意批示" />
     </div>
     <p class="handler">
-      <van-button class="info-inner" type="info">报结呈请</van-button>
+      <van-button class="info-inner" type="info" @click="replay">报结呈请</van-button>
     </p>
     <p class="handler">
-      <van-button class="info-inner" type="primary">审核通过</van-button>
+      <van-button class="info-inner" type="primary" @click="replay">审核通过</van-button>
     </p>
     <p class="handler">
-      <van-button class="info-inner" type="warning">予以报结</van-button>
+      <van-button class="info-inner" type="warning" @click="replay">予以报结</van-button>
     </p>
     <p class="handler">
-      <van-button type="danger">驳回</van-button>
+      <van-button type="danger" @click="replay">驳回</van-button>
     </p>
   </div>
 </template>
@@ -36,7 +36,12 @@ export default {
   components: {
     InfoBar
   },
-  mixins: [common]
+  mixins: [common],
+  methods: {
+    replay() {
+      this.$router.push({ name: 'Cases' })
+    }
+  }
 }
 </script>
 

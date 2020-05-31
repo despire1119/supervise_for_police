@@ -41,6 +41,18 @@ export default {
     setCurrentCaseList(state, payload) {
       state.currentCaseList = payload
     },
+    addCurrentCaseList(state, payload) {
+      console.log(state.currentCaseList.map(item => item.id))
+      if (state.currentCaseList.map(item => item.id).includes(payload.id)) {
+        state.currentCaseList = state.currentCaseList.map(inner => {
+          return inner.id === payload.id ? (inner = Object.assign(inner, payload)) : inner
+        })
+      } else {
+        // 新增
+        state.currentCaseList = [{ ...payload, id: `0000${state.currentCaseList.length}`, processState: 1, caseNormalState: 0 }, ...state.currentCaseList]
+      }
+      // state.currentCaseList = [{ ...payload, id: `0000${state.currentCaseList.length}`, processState: 1, caseNormalState: 0 }, ...state.currentCaseList]
+    },
     changeProcessState(state, payload) {
       state.currentCaseList = state.currentCaseList.map(eve => {
         if (payload.id === eve.id) {
