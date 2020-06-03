@@ -70,10 +70,14 @@ export default {
           // } else {
           //   eve.caseAbnormalState =
           // }
-          console.log(payload)
-          eve.caseAbnormalState = payload.target
-          eve.caseNormalState = 0
-          eve.processState = 1
+          if (payload.caseAbnormalState === undefined) {
+            eve.processState = 1
+            eve.caseNormalState++
+          } else {
+            eve.caseAbnormalState = payload.target
+            eve.caseNormalState = 0
+            eve.processState = 1
+          }
         }
         return eve
       })

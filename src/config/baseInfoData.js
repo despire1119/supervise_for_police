@@ -288,9 +288,8 @@ export const caseList = [
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
-    processState: 3,
-    caseNormalState: 2,
-    caseAbnormalState: 1,
+    processState: 8,
+    caseNormalState: 1,
     ifMine: 1
   },
   {
@@ -340,8 +339,8 @@ export const caseList = [
     way: '采访登记',
     unit: '桥南派出所',
     leader: '唐局长',
-    processState: 1,
-    caseNormalState: 1,
+    processState: 8,
+    caseNormalState: 0,
     // caseAbnormalState: 0,
     ifMine: 1
   },
