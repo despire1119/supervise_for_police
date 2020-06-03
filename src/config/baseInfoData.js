@@ -125,7 +125,7 @@ export const processStateMap = [
     type: 'process-danger'
   }
 ]
-// 案件状态
+// 案件状态表格
 export const caseStateMap = {
   normalState: [
     {
@@ -246,6 +246,33 @@ export const handleBtns = [
     auth: [[7], [0, 1, 2], []],
     target: 2,
     type: 'danger'
+  }
+]
+// 人员表
+export const peopleList = [
+  {
+    name: '葛宁'
+  },
+  {
+    name: '裴昌瑞'
+  },
+  {
+    name: '梁海峰'
+  },
+  {
+    name: '王昆'
+  },
+  {
+    name: '靳超'
+  },
+  {
+    name: '王梁'
+  },
+  {
+    name: '陶醉'
+  },
+  {
+    name: '曹玮玮'
   }
 ]
 // 案件列表

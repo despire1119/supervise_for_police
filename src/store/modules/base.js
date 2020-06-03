@@ -22,8 +22,7 @@ export default {
         route: '/mine',
         active: false
       }
-    ],
-    currentState: 0
+    ]
   },
   mutations: {
     setBottomBarList(state, index) {
@@ -31,9 +30,6 @@ export default {
         item.active = i === index
         return item
       })
-    },
-    setCurrentState(state, payload) {
-      state.currentState = payload
     }
   },
   actions: {

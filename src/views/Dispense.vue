@@ -5,12 +5,12 @@
       :active-color="activeColor"
       :active="active"
     >
-      <van-step>批示</van-step>
+      <van-step>交办</van-step>
       <van-step>
         <template #active-icon>
           <van-icon name="warning" color="#F5A623" />
         </template>
-        <span>提醒</span>
+        <span>包案</span>
       </van-step>
       <van-step>
         <template #active-icon>
@@ -35,12 +35,16 @@
         :readonly="true"
       />
     </div>
-    <van-button class="btn-dispense" type="info" size="large" @click="handleClick">交办</van-button>
-    <van-button class="btn-dispense" type="danger" size="large" @click="rePlay">驳回</van-button>
+    <div class="btn-box">
+      <van-button v-if="$route.params.processState === 2" class="btn-dispense" type="info" size="normal" @click="handleClick">批示</van-button>
+      <van-button v-if="$route.params.processState === 3" class="btn-dispense" type="primary" size="normal" @click="handleClick">签收</van-button>
+      <van-button class="btn-dispense" type="danger" size="normal" @click="rePlay">驳回</van-button>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import common from '@/mixins/common'
 import InfoInput from '@/components/common/InfoInput'
 import InfoBar from '@/components/result/InfoBar'
@@ -60,13 +64,27 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'getCurrentCase'
+    ]),
     activeColor() {
       return colorMap[this.active]
     }
   },
+  created() {
+    this.$route.params && this.$store.commit('setCurrentCase', this.$route.params)
+  },
   methods: {
     handleClick() {
-      this.$router.push({ name: 'Result' })
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      this.$toast.success({
+        message: this.$route.params.processState === 2 ? '批示成功' : '签收成功',
+        duration: 1000,
+        forbidClick: true,
+        onClose: () => {
+          this.$router.push({ name: 'Cases' })
+        }
+      })
     },
     rePlay() {
       this.$router.push({ name: 'Cases' })
@@ -123,5 +141,8 @@ export default {
 .btn-dispense
   width 290px
   height 40px
-  margin 0 43px
+  margin 20px 43px 0
+  line-height 40px
+// .btn-box
+//   height 40px
 </style>

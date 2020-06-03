@@ -18,6 +18,6 @@ export default {
         return eve
       })
     }
-    console.log(this.baseInfoList)
+    // console.log(this.baseInfoList)
   }
 }

@@ -14,21 +14,19 @@
       <info-bar tit="处理结果" init-value="同意批示" />
     </div>
     <p class="handler">
-      <van-button class="info-inner" type="info" @click="replay">报结呈请</van-button>
+      <van-button v-if="$route.params.processState === 4" class="info-inner" type="info" @click="replay">报结呈请</van-button>
     </p>
     <p class="handler">
-      <van-button class="info-inner" type="primary" @click="replay">审核通过</van-button>
+      <van-button v-if="$route.params.processState === 5" class="info-inner" type="primary" @click="replay">审核通过</van-button>
     </p>
     <p class="handler">
-      <van-button class="info-inner" type="warning" @click="replay">予以报结</van-button>
-    </p>
-    <p class="handler">
-      <van-button type="danger" @click="replay">驳回</van-button>
+      <van-button v-if="$route.params.processState === 6" class="info-inner" type="warning" @click="replay">予以报结</van-button>
     </p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import InfoBar from '@/components/result/InfoBar'
 import common from '@/mixins/common'
 
@@ -37,9 +35,25 @@ export default {
     InfoBar
   },
   mixins: [common],
+  computed: {
+    ...mapGetters([
+      'getCurrentCase'
+    ])
+  },
+  created() {
+    this.$route.params && this.$store.commit('setCurrentCase', this.$route.params)
+  },
   methods: {
     replay() {
-      this.$router.push({ name: 'Cases' })
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      this.$toast.success({
+        message: '操作成功',
+        duration: 1000,
+        forbidClick: true,
+        onClose: () => {
+          this.$router.push({ name: 'Cases' })
+        }
+      })
     }
   }
 }

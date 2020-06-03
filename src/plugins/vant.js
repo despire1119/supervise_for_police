@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import '@vant/touch-emulator'
-import { Button, Picker, DatetimePicker, Popup, Tab, Tabs, SwipeCell, Step, Steps, NavBar, Icon, NumberKeyboard, Empty } from 'vant'
+import { Button, Picker, DatetimePicker, Popup, Tab, Tabs, SwipeCell, Step, Steps, NavBar, Icon, NumberKeyboard, Empty, Toast } from 'vant'
 
 Vue.use(Button)
 Vue.use(Picker)
@@ -15,4 +15,5 @@ Vue.use(NavBar)
 Vue.use(Icon)
 Vue.use(NumberKeyboard)
 Vue.use(Empty)
+Vue.use(Toast)
 

@@ -26,13 +26,51 @@
         </div>
       </template>
     </van-swipe-cell>
+    <van-popup
+      v-model="showPeople"
+      position="top"
+    >
+      <van-picker
+        show-toolbar
+        title="请选择交办领导"
+        :columns="peopleList"
+        @confirm="toInstruct"
+        @cancel="showPeople = false"
+      />
+    </van-popup>
+    <van-popup
+      v-model="showAdvice"
+      position="top"
+    >
+      <info-bar tit="拟办意见" :if-write="true" />
+      <p class="btn-area">
+        <van-button type="info" size="mini" @click="instruct">确定</van-button>
+        <van-button size="mini" @click="showAdvice = false">取消</van-button>
+      </p>
+    </van-popup>
+    <van-popup
+      v-model="showResult"
+      position="top"
+    >
+      <info-bar tit="拟办意见" />
+      <info-bar tit="领导批示" />
+      <p class="btn-area">
+        <van-button type="info" size="mini" @click="target">确定</van-button>
+        <van-button size="mini" @click="showResult = false">取消</van-button>
+      </p>
+    </van-popup>
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import InfoBar from '@/components/result/InfoBar'
 import caseState from '@/mixins/caseState'
 
 export default {
+  components: {
+    InfoBar
+  },
   mixins: [caseState],
   props: {
     list: {
@@ -40,16 +78,75 @@ export default {
       default: () => []
     }
   },
+  computed: {
+    ...mapGetters([
+      'getCurrentCase'
+    ])
+  },
   methods: {
+    toInstruct() {
+      this.showPeople = false
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      // this.$toast.success({
+      //   message: '呈请成功',
+      //   duration: 0,
+      //   forbidClick: true,
+      //   onClose: () => {
+      //   }
+      // })
+    },
+    instruct() {
+      this.showAdvice = false
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      // this.$toast.success({
+      //   message: '呈请成功',
+      //   duration: 1000,
+      //   forbidClick: true,
+      //   onClose: () => {
+      //   }
+      // })
+    },
+    target() {
+      this.showResult = false
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+    },
     goDetail(item) {
-      console.log(item)
-      this.$router.push({ name: 'BaseInfo', params: item })
+      switch (item.processState) {
+        case 1:
+          this.$router.push({ name: 'BaseInfo', params: { ...item, write: true }})
+          break
+        case 2:
+        case 3:
+          this.$router.push({ name: 'Dispense', params: item })
+          break
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+          this.$router.push({ name: 'Result', params: item })
+          break
+        default:
+          break
+      }
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.van-toast--success
+  z-index 10000000 !important
+.btn-area
+  display flex
+  flex-direction row-reverse
+  padding 8px 8px
+  button
+    margin-left 10px
+.with-top
+  margin-top 92px
+  padding-bottom 20px
+.van-popup--top
+  margin-top 92px
 .handler
   height 100%
   display flex

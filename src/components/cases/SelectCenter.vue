@@ -54,7 +54,7 @@ export default {
     ...mapGetters([
       'getCasesState',
       'getMyCases',
-      'getCurrentState'
+      'getCurrentListState'
     ])
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
     },
     onClick(index) {
       this.$store.commit('setCurrentState', index)
-      console.log(this.getCurrentState)
+      console.log(this.getCurrentListState)
     }
   }
 }
@@ -74,7 +74,7 @@ export default {
 
 <style lang="stylus" scoped>
 .with-pad
-  padding-top 94px
+  margin-top 94px
 .nav-child
   position fixed
   top 88px

@@ -11,6 +11,7 @@
     />
     <div class="btn-area">
       <van-button
+        v-if="$route.params.processState === 1"
         :loading="false"
         loading-text="正在生成舆情"
         text="呈请批示"
@@ -19,6 +20,16 @@
         @click="clickHandler"
       />
       <van-button
+        v-if="$route.params.processState === 2"
+        :loading="false"
+        loading-text="正在生成舆情"
+        text="批示"
+        type="info"
+        size="large"
+        @click="goSignIn"
+      />
+      <van-button
+        v-if="$route.params.processState === 1"
         :loading="false"
         text="保存"
         type="info"
@@ -27,11 +38,21 @@
         @click="save"
       />
     </div>
-
+    <van-popup v-model="showPicker" position="bottom">
+      <van-picker
+        v-model="leader"
+        show-toolbar
+        title="请选择交办领导"
+        :columns="peopleList"
+        @confirm="assign"
+        @cancel="showPicker=false"
+      />
+    </van-popup>
   </div>
 </template>
 
 <script>
+import { peopleList } from '@/config/baseInfoData'
 import { mapGetters } from 'vuex'
 import common from '@/mixins/common'
 import baseInfo from '@/mixins/baseInfo'
@@ -50,24 +71,62 @@ export default {
   },
   data() {
     return {
+      showPicker: false,
+      leader: '',
+      peopleList: peopleList.map(item => item.name)
     }
   },
   computed: {
     ...mapGetters([
-      'getBaseInfoToCommit'
+      'getBaseInfoToCommit',
+      'getCurrentCase'
     ])
   },
   created() {
-    console.log('11111111111', this.$route.params.id)
+    this.$route.params && this.$store.commit('setCurrentCase', this.$route.params)
   },
   methods: {
+    addCase() {
+      this.$store.commit('setCurrentCase', Object.assign(this.getBaseInfoToCommit, { id: this.getCurrentCase.id || this.$route.params.id || '' }))
+      this.$store.commit('addCurrentCaseList', this.getCurrentCase)
+    },
     clickHandler() {
-      this.$router.push({ name: 'Dispense' })
+      this.showPicker = true
+    },
+    assign() {
+      this.addCase()
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      this.showPicker = false
+      this.$toast.success({
+        message: '呈请成功',
+        duration: 1000,
+        forbidClick: true,
+        onClose: () => {
+          this.$router.push({ name: 'Cases' })
+        }
+      })
     },
     save() {
-      console.log(this.$route.params)
-      this.$store.commit('addCurrentCaseList', Object.assign(this.getBaseInfoToCommit, { id: this.$route.params.id || '' }))
-      this.$router.push({ name: 'Cases' })
+      this.addCase()
+      this.$toast.success({
+        message: '保存成功',
+        duration: 1000,
+        forbidClick: true,
+        onClose: () => {
+          this.$router.push({ name: 'Cases' })
+        }
+      })
+    },
+    goSignIn() {
+      this.$store.commit('changeProcessState', this.getCurrentCase)
+      this.$toast.success({
+        message: '批示成功',
+        duration: 1000,
+        forbidClick: true,
+        onClose: () => {
+          this.$router.push({ name: 'Cases' })
+        }
+      })
     }
   }
 }

@@ -1,19 +1,23 @@
 import { mapGetters } from 'vuex'
-import { processStateMap, caseStateMap, handleBtns } from '@/config/baseInfoData'
+import { processStateMap, caseStateMap, handleBtns, peopleList } from '@/config/baseInfoData'
 
 export default {
   data() {
     return {
-      currentList: this.list
+      currentList: this.list,
+      showPeople: false,
+      showAdvice: false,
+      showResult: false,
+      peopleList: peopleList.map(item => item.name)
     }
   },
   computed: {
     ...mapGetters([
-      'getCurrentState',
+      'getCurrentListState',
       'getCurrentCaseList'
     ]),
     listToShow() {
-      return this.filterByState(this.currentList, this.getCurrentState).map(item => {
+      return this.filterByState(this.currentList, this.getCurrentListState).map(item => {
         item.processStateName = processStateMap[item.processState]['name'] || ''
         item.processStateClass = processStateMap[item.processState]['type'] || ''
         item.caseStateName = item.caseAbnormalState !== undefined
@@ -57,12 +61,22 @@ export default {
           this.$store.commit('deleteCase', item)
           break
         case 'toInstruct':
+          this.showPeople = true
+          this.$store.commit('setCurrentCase', item)
+          // this.$store.commit('changeProcessState', item)
+          break
         case 'instruct':
+          this.showAdvice = true
+          this.$store.commit('setCurrentCase', item)
+          break
         case 'signIn':
+          this.$router.push({ name: 'Dispense', params: item })
+          this.$store.commit('setCurrentCase', item)
+          break
         case 'target':
         case 'goCharge':
         case 'charge':
-          this.$store.commit('changeProcessState', item)
+          this.showResult = true
           break
         case 'account':
         case 'complaint':

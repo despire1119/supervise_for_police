@@ -2,9 +2,11 @@ import { withBottomList } from '@/config'
 
 export default {
   getBottomBar: state => state.base.bottomBarList,
-  getCasesState: state => state.list.casesState,
-  getMyCases: state => state.list.myCases,
-  getCurrentCaseState: state => state.caseState.currentCaseState,
+  getCasesState: state => state.Case.casesState,
+  getCurrentCaseList: state => state.Case.currentCaseList,
+  getCurrentListState: state => state.Case.currentListState,
+  getCurrentCase: state => state.Case.currentCase,
+  getMyCases: state => state.Case.myCases,
   getIfBottom: state => withBottomList.includes(state.page.currentRoute.name),
   getIfTop: state => state.page.currentRoute.name !== 'Home',
   getCurrentTitle: state => state.page.currentRoute.meta ? state.page.currentRoute.meta.title : '首页',
@@ -16,7 +18,5 @@ export default {
       })
     })
     return obj
-  }, // 提取提交信息
-  getCurrentState: state => state.base.currentState,
-  getCurrentCaseList: state => state.list.currentCaseList
+  } // 提取提交信息
 }
